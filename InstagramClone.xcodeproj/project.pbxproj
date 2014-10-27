@@ -15,6 +15,10 @@
 		5D15C7D119FED2B100F1A62F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7D019FED2B100F1A62F /* Images.xcassets */; };
 		5D15C7D419FED2B100F1A62F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7D219FED2B100F1A62F /* LaunchScreen.xib */; };
 		5D15C7E019FED2B100F1A62F /* InstagramCloneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7DF19FED2B100F1A62F /* InstagramCloneTests.m */; };
+		5D15C7EB19FED8DC00F1A62F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7EA19FED8DC00F1A62F /* User.m */; };
+		5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7EE19FED9CE00F1A62F /* Photo.m */; };
+		5D15C7F119FEDA2300F1A62F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D15C7F019FEDA2300F1A62F /* MapKit.framework */; };
+		5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7F319FEDB2000F1A62F /* Comment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,13 @@
 		5D15C7D919FED2B100F1A62F /* InstagramCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D15C7DE19FED2B100F1A62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D15C7DF19FED2B100F1A62F /* InstagramCloneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramCloneTests.m; sourceTree = "<group>"; };
+		5D15C7E919FED8DC00F1A62F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5D15C7EA19FED8DC00F1A62F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5D15C7ED19FED9CE00F1A62F /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
+		5D15C7EE19FED9CE00F1A62F /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
+		5D15C7F019FEDA2300F1A62F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5D15C7F219FEDB2000F1A62F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		5D15C7F319FEDB2000F1A62F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D15C7F119FEDA2300F1A62F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +77,7 @@
 		5D15C7B419FED2B100F1A62F = {
 			isa = PBXGroup;
 			children = (
+				5D15C7F019FEDA2300F1A62F /* MapKit.framework */,
 				5D15C7BF19FED2B100F1A62F /* InstagramClone */,
 				5D15C7DC19FED2B100F1A62F /* InstagramCloneTests */,
 				5D15C7BE19FED2B100F1A62F /* Products */,
@@ -88,6 +101,7 @@
 				5D15C7CA19FED2B100F1A62F /* ViewController.h */,
 				5D15C7CB19FED2B100F1A62F /* ViewController.m */,
 				5D15C7CD19FED2B100F1A62F /* Main.storyboard */,
+				5D15C7EC19FED99D00F1A62F /* Models */,
 				5D15C7D019FED2B100F1A62F /* Images.xcassets */,
 				5D15C7D219FED2B100F1A62F /* LaunchScreen.xib */,
 				5D15C7C719FED2B100F1A62F /* InstagramClone.xcdatamodeld */,
@@ -120,6 +134,19 @@
 				5D15C7DE19FED2B100F1A62F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D15C7EC19FED99D00F1A62F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D15C7F219FEDB2000F1A62F /* Comment.h */,
+				5D15C7F319FEDB2000F1A62F /* Comment.m */,
+				5D15C7ED19FED9CE00F1A62F /* Photo.h */,
+				5D15C7EE19FED9CE00F1A62F /* Photo.m */,
+				5D15C7E919FED8DC00F1A62F /* User.h */,
+				5D15C7EA19FED8DC00F1A62F /* User.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
+				5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */,
+				5D15C7EB19FED8DC00F1A62F /* User.m in Sources */,
 				5D15C7C919FED2B100F1A62F /* InstagramClone.xcdatamodeld in Sources */,
 				5D15C7C619FED2B100F1A62F /* AppDelegate.m in Sources */,
 				5D15C7CC19FED2B100F1A62F /* ViewController.m in Sources */,
