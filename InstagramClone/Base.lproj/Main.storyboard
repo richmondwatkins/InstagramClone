@@ -88,7 +88,7 @@
         <!--Home-->
         <scene sceneID="JLP-hz-VE6">
             <objects>
-                <viewController id="bne-dz-maW" sceneMemberID="viewController">
+                <viewController id="bne-dz-maW" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NZD-yH-eDy"/>
                         <viewControllerLayoutGuide type="bottom" id="7kt-LT-pUN"/>
