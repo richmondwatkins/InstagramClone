@@ -19,6 +19,7 @@
 		5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7EE19FED9CE00F1A62F /* Photo.m */; };
 		5D15C7F119FEDA2300F1A62F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D15C7F019FEDA2300F1A62F /* MapKit.framework */; };
 		5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7F319FEDB2000F1A62F /* Comment.m */; };
+		81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E10C5419FEEA97000FE364 /* ExploreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		5D15C7F019FEDA2300F1A62F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D15C7F219FEDB2000F1A62F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		5D15C7F319FEDB2000F1A62F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		81E10C5319FEEA97000FE364 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
+		81E10C5419FEEA97000FE364 /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				5D15C7CA19FED2B100F1A62F /* ViewController.h */,
 				5D15C7CB19FED2B100F1A62F /* ViewController.m */,
 				5D15C7CD19FED2B100F1A62F /* Main.storyboard */,
+				81E10C5319FEEA97000FE364 /* ExploreViewController.h */,
+				81E10C5419FEEA97000FE364 /* ExploreViewController.m */,
 				5D15C7EC19FED99D00F1A62F /* Models */,
 				5D15C7D019FED2B100F1A62F /* Images.xcassets */,
 				5D15C7D219FED2B100F1A62F /* LaunchScreen.xib */,
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */,
 				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
 				5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */,
 				5D15C7EB19FED8DC00F1A62F /* User.m in Sources */,
@@ -446,6 +452,7 @@
 				5D15C7E519FED2B100F1A62F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D15C7E619FED2B100F1A62F /* Build configuration list for PBXNativeTarget "InstagramCloneTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +461,7 @@
 				5D15C7E819FED2B100F1A62F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
