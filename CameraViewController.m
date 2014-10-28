@@ -50,7 +50,6 @@
 }
 
 -(void)uploadImage:(NSDictionary *)photoInfo{
-    NSLog(@"%@",[PFUser currentUser]);
     NSData *imageData = UIImageJPEGRepresentation(photoInfo[@"UIImagePickerControllerOriginalImage"], 0.5f);
     PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@-image", [PFUser currentUser][@"username"]] data:imageData];
 

@@ -27,7 +27,28 @@
     self.usernameTextField.text = [username mutableCopy];
 
     NSLog(@"%@", [PFUser currentUser]);
+    [self downloadImages];
     // Do any additional setup after loading the view.
+}
+
+-(void)downloadImages{
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    PFUser *user = [PFUser currentUser];
+    [query whereKey:@"user" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        // If there are photos, we start extracting the data
+        // Save a list of object IDs while extracting this data
+
+        NSMutableArray *imageArray = [NSMutableArray array];
+
+        if (objects.count > 0) {
+            for (PFObject *eachObject in objects) {
+                [imageArray addObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]]];
+            }
+            NSLog(@"%@",imageArray);
+        }
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
