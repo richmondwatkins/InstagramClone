@@ -7,7 +7,6 @@
 //
 
 #import "UserViewController.h"
-#import "User.h"
 #import <Parse/Parse.h>
 #import "CustomCollectionViewCell.h"
 @interface UserViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -23,11 +22,8 @@
     [super viewDidLoad];
     self.imagesArray = [NSMutableArray array];
 
-    User *userEmail = [PFUser currentUser][@"email"];
-    User *username = [PFUser currentUser][@"username"];
-
-    self.userEmailTextField.text = [userEmail mutableCopy];
-    self.usernameTextField.text = [username mutableCopy];
+    self.userEmailTextField.text = [PFUser currentUser][@"email"];
+    self.usernameTextField.text = [PFUser currentUser][@"email"];
 
     NSLog(@"%@", [PFUser currentUser]);
     [self downloadImages];

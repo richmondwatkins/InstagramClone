@@ -14,9 +14,6 @@
 		5D15C7CF19FED2B100F1A62F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7CD19FED2B100F1A62F /* Main.storyboard */; };
 		5D15C7D119FED2B100F1A62F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7D019FED2B100F1A62F /* Images.xcassets */; };
 		5D15C7D419FED2B100F1A62F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7D219FED2B100F1A62F /* LaunchScreen.xib */; };
-		5D15C7E019FED2B100F1A62F /* InstagramCloneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7DF19FED2B100F1A62F /* InstagramCloneTests.m */; };
-		5D15C7EB19FED8DC00F1A62F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7EA19FED8DC00F1A62F /* User.m */; };
-		5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7EE19FED9CE00F1A62F /* Photo.m */; };
 		5D15C7F119FEDA2300F1A62F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D15C7F019FEDA2300F1A62F /* MapKit.framework */; };
 		5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7F319FEDB2000F1A62F /* Comment.m */; };
 		5D1A34DF19FEE716003EB192 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34DD19FEE716003EB192 /* Bolts.framework */; };
@@ -35,21 +32,12 @@
 		5D1A34FA19FEE78C003EB192 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */; };
 		5D1A34FC19FEE831003EB192 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FB19FEE831003EB192 /* CoreAudio.framework */; };
 		5D1A34FE19FEE8F8003EB192 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FD19FEE8F8003EB192 /* Accounts.framework */; };
+		5DC464D81A00120000786AD4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC464D71A00120000786AD4 /* Photo.m */; };
 		5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1B19FF46EC00DE1D3D /* CameraViewController.m */; };
 		5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1F19FF596300DE1D3D /* CustomCollectionViewCell.m */; };
 		81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E10C5419FEEA97000FE364 /* ExploreViewController.m */; };
 		CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD416019FF3B9B008FFA5E /* UserViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5D15C7DA19FED2B100F1A62F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5D15C7B519FED2B100F1A62F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5D15C7BC19FED2B100F1A62F;
-			remoteInfo = InstagramClone;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D15C7BD19FED2B100F1A62F /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,13 +51,8 @@
 		5D15C7CE19FED2B100F1A62F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D15C7D019FED2B100F1A62F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5D15C7D319FED2B100F1A62F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5D15C7D919FED2B100F1A62F /* InstagramCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D15C7DE19FED2B100F1A62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D15C7DF19FED2B100F1A62F /* InstagramCloneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramCloneTests.m; sourceTree = "<group>"; };
-		5D15C7E919FED8DC00F1A62F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		5D15C7EA19FED8DC00F1A62F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		5D15C7ED19FED9CE00F1A62F /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
-		5D15C7EE19FED9CE00F1A62F /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
 		5D15C7F019FEDA2300F1A62F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D15C7F219FEDB2000F1A62F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		5D15C7F319FEDB2000F1A62F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
@@ -89,6 +72,8 @@
 		5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5D1A34FB19FEE831003EB192 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		5D1A34FD19FEE8F8003EB192 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5DC464D61A00120000786AD4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		5DC464D71A00120000786AD4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		5DEC4B1A19FF46EC00DE1D3D /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ../CameraViewController.h; sourceTree = "<group>"; };
 		5DEC4B1B19FF46EC00DE1D3D /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = ../CameraViewController.m; sourceTree = "<group>"; };
 		5DEC4B1E19FF596300DE1D3D /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCollectionViewCell.h; path = ../CustomCollectionViewCell.h; sourceTree = "<group>"; };
@@ -124,19 +109,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D15C7D619FED2B100F1A62F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		5D15C7B419FED2B100F1A62F = {
 			isa = PBXGroup;
 			children = (
+				5DC464D21A0010EA00786AD4 /* Data Model */,
 				5DEC4B1919FF34F200DE1D3D /* Frameworks */,
 				5D15C7BF19FED2B100F1A62F /* InstagramClone */,
 				5D15C7DC19FED2B100F1A62F /* InstagramCloneTests */,
@@ -148,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				5D15C7BD19FED2B100F1A62F /* InstagramClone.app */,
-				5D15C7D919FED2B100F1A62F /* InstagramCloneTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,12 +187,17 @@
 			children = (
 				5D15C7F219FEDB2000F1A62F /* Comment.h */,
 				5D15C7F319FEDB2000F1A62F /* Comment.m */,
-				5D15C7ED19FED9CE00F1A62F /* Photo.h */,
-				5D15C7EE19FED9CE00F1A62F /* Photo.m */,
-				5D15C7E919FED8DC00F1A62F /* User.h */,
-				5D15C7EA19FED8DC00F1A62F /* User.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		5DC464D21A0010EA00786AD4 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				5DC464D61A00120000786AD4 /* Photo.h */,
+				5DC464D71A00120000786AD4 /* Photo.m */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 		5DEC4B1919FF34F200DE1D3D /* Frameworks */ = {
@@ -261,24 +244,6 @@
 			productReference = 5D15C7BD19FED2B100F1A62F /* InstagramClone.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5D15C7D819FED2B100F1A62F /* InstagramCloneTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D15C7E619FED2B100F1A62F /* Build configuration list for PBXNativeTarget "InstagramCloneTests" */;
-			buildPhases = (
-				5D15C7D519FED2B100F1A62F /* Sources */,
-				5D15C7D619FED2B100F1A62F /* Frameworks */,
-				5D15C7D719FED2B100F1A62F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5D15C7DB19FED2B100F1A62F /* PBXTargetDependency */,
-			);
-			name = InstagramCloneTests;
-			productName = InstagramCloneTests;
-			productReference = 5D15C7D919FED2B100F1A62F /* InstagramCloneTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,10 +255,6 @@
 				TargetAttributes = {
 					5D15C7BC19FED2B100F1A62F = {
 						CreatedOnToolsVersion = 6.0.1;
-					};
-					5D15C7D819FED2B100F1A62F = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 5D15C7BC19FED2B100F1A62F;
 					};
 				};
 			};
@@ -311,7 +272,6 @@
 			projectRoot = "";
 			targets = (
 				5D15C7BC19FED2B100F1A62F /* InstagramClone */,
-				5D15C7D819FED2B100F1A62F /* InstagramCloneTests */,
 			);
 		};
 /* End PBXProject section */
@@ -327,13 +287,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D15C7D719FED2B100F1A62F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -341,12 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC464D81A00120000786AD4 /* Photo.m in Sources */,
 				CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */,
 				81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */,
 				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
-				5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */,
 				5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */,
-				5D15C7EB19FED8DC00F1A62F /* User.m in Sources */,
 				5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */,
 				5D15C7C919FED2B100F1A62F /* InstagramClone.xcdatamodeld in Sources */,
 				5D15C7C619FED2B100F1A62F /* AppDelegate.m in Sources */,
@@ -355,23 +307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D15C7D519FED2B100F1A62F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5D15C7E019FED2B100F1A62F /* InstagramCloneTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5D15C7DB19FED2B100F1A62F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5D15C7BC19FED2B100F1A62F /* InstagramClone */;
-			targetProxy = 5D15C7DA19FED2B100F1A62F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5D15C7CD19FED2B100F1A62F /* Main.storyboard */ = {
@@ -497,40 +433,6 @@
 			};
 			name = Release;
 		};
-		5D15C7E719FED2B100F1A62F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InstagramCloneTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstagramClone.app/InstagramClone";
-			};
-			name = Debug;
-		};
-		5D15C7E819FED2B100F1A62F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InstagramCloneTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstagramClone.app/InstagramClone";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -548,15 +450,6 @@
 			buildConfigurations = (
 				5D15C7E419FED2B100F1A62F /* Debug */,
 				5D15C7E519FED2B100F1A62F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5D15C7E619FED2B100F1A62F /* Build configuration list for PBXNativeTarget "InstagramCloneTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5D15C7E719FED2B100F1A62F /* Debug */,
-				5D15C7E819FED2B100F1A62F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

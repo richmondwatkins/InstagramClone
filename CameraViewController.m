@@ -9,6 +9,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "CameraViewController.h"
 #import <Parse/Parse.h>
+#import "Photo.h"
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -53,28 +54,14 @@
     NSData *imageData = UIImageJPEGRepresentation(photoInfo[@"UIImagePickerControllerOriginalImage"], 0.5f);
     PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@-image", [PFUser currentUser][@"username"]] data:imageData];
 
-    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-        [photo setObject:imageFile forKey:@"imageFile"];
-
-        photo.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-
-        PFUser *user = [PFUser currentUser];
-        [photo setObject:user forKey:@"user"];
-
-        [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
-                NSLog(@"Success upload");
-            }
-            else{
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
-
-    } progressBlock:^(int percentDone) {
-        NSLog(@"%i", percentDone);
-    }];
+    Photo *photo = [Photo object];
+    photo.user = [PFUser currentUser];
+    photo.imageFile = imageFile;
+    photo.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
     
+    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"Success upload");
+    }];
 }
 
 
