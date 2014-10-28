@@ -23,8 +23,8 @@
     User *userEmail = [PFUser currentUser][@"email"];
     User *username = [PFUser currentUser][@"username"];
 
-    self.userEmailTextField.text = userEmail;
-    self.usernameTextField.text = username;
+    self.userEmailTextField.text = [userEmail mutableCopy];
+    self.usernameTextField.text = [username mutableCopy];
 
     NSLog(@"%@", [PFUser currentUser]);
     // Do any additional setup after loading the view.
