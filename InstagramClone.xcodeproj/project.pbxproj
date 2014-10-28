@@ -19,7 +19,6 @@
 		5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7EE19FED9CE00F1A62F /* Photo.m */; };
 		5D15C7F119FEDA2300F1A62F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D15C7F019FEDA2300F1A62F /* MapKit.framework */; };
 		5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7F319FEDB2000F1A62F /* Comment.m */; };
-		81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E10C5419FEEA97000FE364 /* ExploreViewController.m */; };
 		5D1A34DF19FEE716003EB192 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34DD19FEE716003EB192 /* Bolts.framework */; };
 		5D1A34E019FEE716003EB192 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34DE19FEE716003EB192 /* Parse.framework */; };
 		5D1A34EE19FEE78C003EB192 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34E119FEE78C003EB192 /* AudioToolbox.framework */; };
@@ -36,6 +35,8 @@
 		5D1A34FA19FEE78C003EB192 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */; };
 		5D1A34FC19FEE831003EB192 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FB19FEE831003EB192 /* CoreAudio.framework */; };
 		5D1A34FE19FEE8F8003EB192 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FD19FEE8F8003EB192 /* Accounts.framework */; };
+		5DEC4B1819FF34C800DE1D3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1719FF34C800DE1D3D /* CameraViewController.m */; };
+		81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E10C5419FEEA97000FE364 /* ExploreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +71,6 @@
 		5D15C7F019FEDA2300F1A62F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D15C7F219FEDB2000F1A62F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		5D15C7F319FEDB2000F1A62F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		81E10C5319FEEA97000FE364 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
-		81E10C5419FEEA97000FE364 /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
 		5D1A34DD19FEE716003EB192 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = InstagramClone/Bolts.framework; sourceTree = "<group>"; };
 		5D1A34DE19FEE716003EB192 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = InstagramClone/Parse.framework; sourceTree = "<group>"; };
 		5D1A34E119FEE78C003EB192 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -88,6 +87,10 @@
 		5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5D1A34FB19FEE831003EB192 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		5D1A34FD19FEE8F8003EB192 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5DEC4B1619FF34C800DE1D3D /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ../CameraViewController.h; sourceTree = "<group>"; };
+		5DEC4B1719FF34C800DE1D3D /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = ../CameraViewController.m; sourceTree = "<group>"; };
+		81E10C5319FEEA97000FE364 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
+		81E10C5419FEEA97000FE364 /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,23 +131,7 @@
 		5D15C7B419FED2B100F1A62F = {
 			isa = PBXGroup;
 			children = (
-				5D1A34FD19FEE8F8003EB192 /* Accounts.framework */,
-				5D1A34FB19FEE831003EB192 /* CoreAudio.framework */,
-				5D1A34DD19FEE716003EB192 /* Bolts.framework */,
-				5D1A34DE19FEE716003EB192 /* Parse.framework */,
-				5D1A34E119FEE78C003EB192 /* AudioToolbox.framework */,
-				5D1A34E319FEE78C003EB192 /* AVFoundation.framework */,
-				5D1A34E419FEE78C003EB192 /* AVKit.framework */,
-				5D1A34E519FEE78C003EB192 /* CFNetwork.framework */,
-				5D1A34E619FEE78C003EB192 /* CoreGraphics.framework */,
-				5D1A34E719FEE78C003EB192 /* CoreLocation.framework */,
-				5D1A34E819FEE78C003EB192 /* libz.dylib */,
-				5D1A34E919FEE78C003EB192 /* MobileCoreServices.framework */,
-				5D1A34EA19FEE78C003EB192 /* QuartzCore.framework */,
-				5D1A34EB19FEE78C003EB192 /* Security.framework */,
-				5D1A34EC19FEE78C003EB192 /* Social.framework */,
-				5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */,
-				5D15C7F019FEDA2300F1A62F /* MapKit.framework */,
+				5DEC4B1919FF34F200DE1D3D /* Frameworks */,
 				5D15C7BF19FED2B100F1A62F /* InstagramClone */,
 				5D15C7DC19FED2B100F1A62F /* InstagramCloneTests */,
 				5D15C7BE19FED2B100F1A62F /* Products */,
@@ -165,6 +152,8 @@
 			children = (
 				5D15C7C419FED2B100F1A62F /* AppDelegate.h */,
 				5D15C7C519FED2B100F1A62F /* AppDelegate.m */,
+				5DEC4B1719FF34C800DE1D3D /* CameraViewController.m */,
+				5DEC4B1619FF34C800DE1D3D /* CameraViewController.h */,
 				5D15C7CA19FED2B100F1A62F /* ViewController.h */,
 				5D15C7CB19FED2B100F1A62F /* ViewController.m */,
 				5D15C7CD19FED2B100F1A62F /* Main.storyboard */,
@@ -216,6 +205,30 @@
 				5D15C7EA19FED8DC00F1A62F /* User.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		5DEC4B1919FF34F200DE1D3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D1A34FD19FEE8F8003EB192 /* Accounts.framework */,
+				5D1A34FB19FEE831003EB192 /* CoreAudio.framework */,
+				5D1A34DD19FEE716003EB192 /* Bolts.framework */,
+				5D1A34DE19FEE716003EB192 /* Parse.framework */,
+				5D1A34E119FEE78C003EB192 /* AudioToolbox.framework */,
+				5D1A34E319FEE78C003EB192 /* AVFoundation.framework */,
+				5D1A34E419FEE78C003EB192 /* AVKit.framework */,
+				5D1A34E519FEE78C003EB192 /* CFNetwork.framework */,
+				5D1A34E619FEE78C003EB192 /* CoreGraphics.framework */,
+				5D1A34E719FEE78C003EB192 /* CoreLocation.framework */,
+				5D1A34E819FEE78C003EB192 /* libz.dylib */,
+				5D1A34E919FEE78C003EB192 /* MobileCoreServices.framework */,
+				5D1A34EA19FEE78C003EB192 /* QuartzCore.framework */,
+				5D1A34EB19FEE78C003EB192 /* Security.framework */,
+				5D1A34EC19FEE78C003EB192 /* Social.framework */,
+				5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */,
+				5D15C7F019FEDA2300F1A62F /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +337,7 @@
 				5D15C7EB19FED8DC00F1A62F /* User.m in Sources */,
 				5D15C7C919FED2B100F1A62F /* InstagramClone.xcdatamodeld in Sources */,
 				5D15C7C619FED2B100F1A62F /* AppDelegate.m in Sources */,
+				5DEC4B1819FF34C800DE1D3D /* CameraViewController.m in Sources */,
 				5D15C7CC19FED2B100F1A62F /* ViewController.m in Sources */,
 				5D15C7C319FED2B100F1A62F /* main.m in Sources */,
 			);
