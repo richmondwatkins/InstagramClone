@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 Richmond. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "CameraViewController.h"
-#import <MobileCoreSer>
-@interface CameraViewController ()
+#import <Parse/Parse.h>
+@interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -24,24 +26,6 @@
     imagePicker.sourceType =
     UIImagePickerControllerSourceTypeCamera;
 
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-
-    CameraOverlay *overlay = [[CameraOverlay alloc]
-                              initWithFrame:CGRectMake(0, 0, screenHeight, screenWidth)];
-
-    imagePicker.showsCameraControls = NO;
-    imagePicker.toolbarHidden = YES;
-    imagePicker.cameraOverlayView = overlay;
-
-    //    CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 71.0);
-    //    imagePicker.cameraViewTransform = translate;
-
-    //    CGAffineTransform scale = CGAffineTransformScale(translate, 1, 1);
-    //    imagePicker.cameraViewTransform = scale;
-
-    imagePicker.allowsEditing = YES;
     [self presentViewController:imagePicker
                        animated:YES completion:nil];
 }
@@ -52,7 +36,7 @@
 
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage])
     {
-        NSLog(@"%@",[PFUser currentUser]);
+        self.imageView.image = info[@"UIImagePickerControllerOriginalImage"];
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
     {
