@@ -36,17 +36,20 @@
     PFUser *user = [PFUser currentUser];
     [query whereKey:@"user" equalTo:user];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        // If there are photos, we start extracting the data
-        // Save a list of object IDs while extracting this data
 
-        NSMutableArray *imageArray = [NSMutableArray array];
-
-        if (objects.count > 0) {
-            for (PFObject *eachObject in objects) {
-                [imageArray addObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]]];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            NSMutableArray *imageArray = [NSMutableArray array];
+            if (objects.count > 0) {
+                for (PFObject *eachObject in objects) {
+                    [imageArray addObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]]];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"%@",imageArray);
+                });
             }
-            NSLog(@"%@",imageArray);
-        }
+        });
+
     }];
 
 }
