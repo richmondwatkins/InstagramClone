@@ -29,7 +29,7 @@
     [self presentViewController:imagePicker
                        animated:YES completion:nil];
 
-  }
+}
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
@@ -75,7 +75,7 @@
     } progressBlock:^(int percentDone) {
         NSLog(@"%i", percentDone);
     }];
-
+    
 }
 
 
