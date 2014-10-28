@@ -130,7 +130,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
-    cell.imageView.image = [self.homeImagesArray objectAtIndex:indexPath.row];
+    cell.imageActual.image = [self.homeImagesArray objectAtIndex:indexPath.row];
     return cell;
 }
 
