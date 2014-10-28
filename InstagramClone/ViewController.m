@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
-
+#import "ExploreViewController.h"
+#import "SearchTableViewCell.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 @property NSArray *homeFeedElements;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
