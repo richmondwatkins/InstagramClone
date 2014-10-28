@@ -9,7 +9,9 @@
 #import "ExploreViewController.h"
 #import <Parse/Parse.h>
 
-@interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+#import "SearchTableViewCell.h"
+#import "SearchTableViewCell.h"
+@interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, SearchDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *exploreTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -22,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.usersArray = [NSArray array];
     [self refreshDisplay];
     [self addFollower];
@@ -33,7 +36,8 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.delegate = self;
     PFUser *user = [self.usersArray objectAtIndex:indexPath.row];
     cell.textLabel.text = user[@"username"];
     return cell;
@@ -68,6 +72,10 @@
 
 }
 
+
+-(void)addFriendButtonTapped{
+    NSLog(@"TAP in Explore");
+}
 
 -(void)addFollower{
     PFQuery *query = [PFUser query];
