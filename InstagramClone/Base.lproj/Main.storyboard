@@ -21,31 +21,19 @@
                                 <rect key="frame" x="0.0" y="53" width="600" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zrk-Zp-MaB" customClass="SearchTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zrk-Zp-MaB" customClass="HomeTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zrk-Zp-MaB" id="Mny-BY-4iN">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aiw-1x-zy9">
-                                                    <rect key="frame" x="546" y="7" width="30" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <state key="normal" title="+">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="onAddFriendButtonPressed:" destination="Zrk-Zp-MaB" eventType="touchUpInside" id="MW8-5e-mpb"/>
-                                                    </connections>
-                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvR-nd-mMi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                </imageView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Aiw-1x-zy9" secondAttribute="trailing" constant="24" id="6tM-Ba-DrZ"/>
-                                                <constraint firstItem="Aiw-1x-zy9" firstAttribute="top" secondItem="Mny-BY-4iN" secondAttribute="top" constant="7" id="aSX-bB-zK7"/>
-                                                <constraint firstAttribute="bottom" secondItem="Aiw-1x-zy9" secondAttribute="bottom" constant="6" id="lhe-tT-hf6"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addFriendButton" destination="Aiw-1x-zy9" id="JKl-3R-3lo"/>
+                                            <outlet property="imageActual" destination="mvR-nd-mMi" id="8Nv-QC-DCQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -240,7 +228,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="uKf-yY-yZ3"/>
                     <connections>
-                        <outlet property="tableView" destination="Uy4-Ss-GE4" id="aTP-hw-1pH"/>
+                        <outlet property="tableView" destination="Uy4-Ss-GE4" id="0Cc-hb-WtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUE-7I-zDx" userLabel="First Responder" sceneMemberID="firstResponder"/>

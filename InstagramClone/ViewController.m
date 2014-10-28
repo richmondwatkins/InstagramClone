@@ -10,8 +10,12 @@
 #import <Parse/Parse.h>
 #import "ExploreViewController.h"
 #import "SearchTableViewCell.h"
+#import "Photo.h"
+#import "HomeTableViewCell.h"
+
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 @property NSArray *homeFeedElements;
+@property NSMutableArray *homeImagesArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -20,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.homeImagesArray = [NSMutableArray array];
     self.homeFeedElements = @[@"home element 1", @"home element 2"];
 }
 
@@ -40,6 +45,8 @@
 
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
+    }else{
+        [self downloadImages];
     }
 }
 
@@ -96,13 +103,34 @@
     NSLog(@"User dismissed the signUpViewController");
 }
 
+-(void)downloadImages{
+    PFQuery *query = [PFQuery queryWithClassName:[Photo parseClassName]];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            if (objects.count > 0) {
+                for (PFObject *eachObject in objects) {
+                    [self.homeImagesArray addObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]]];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+//                    NSLog(@"%@", self.homeImagesArray);
+                });
+            }
+        });
+
+    }];
+    
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.homeFeedElements.count;
+    return self.homeImagesArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
-    cell.textLabel.text = [self.homeFeedElements objectAtIndex:indexPath.row];
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
+    cell.imageView.image = [self.homeImagesArray objectAtIndex:indexPath.row];
     return cell;
 }
 

@@ -38,6 +38,7 @@
 		5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1F19FF596300DE1D3D /* CustomCollectionViewCell.m */; };
 		81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E10C5419FEEA97000FE364 /* ExploreViewController.m */; };
 		CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD416019FF3B9B008FFA5E /* UserViewController.m */; };
+		CCE088481A00354C0074484E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE088471A00354C0074484E /* HomeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,8 @@
 		81E10C5419FEEA97000FE364 /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
 		CCAD415F19FF3B9B008FFA5E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		CCAD416019FF3B9B008FFA5E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		CCE088461A00354C0074484E /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTableViewCell.h; path = ../HomeTableViewCell.h; sourceTree = "<group>"; };
+		CCE088471A00354C0074484E /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTableViewCell.m; path = ../HomeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 		5D15C7BF19FED2B100F1A62F /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				CCE088461A00354C0074484E /* HomeTableViewCell.h */,
+				CCE088471A00354C0074484E /* HomeTableViewCell.m */,
 				5D15C7C419FED2B100F1A62F /* AppDelegate.h */,
 				5D15C7C519FED2B100F1A62F /* AppDelegate.m */,
 				5DEC4B1A19FF46EC00DE1D3D /* CameraViewController.h */,
@@ -302,6 +307,7 @@
 				5DC464D81A00120000786AD4 /* Photo.m in Sources */,
 				CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */,
 				81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */,
+				CCE088481A00354C0074484E /* HomeTableViewCell.m in Sources */,
 				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
 				5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */,
 				5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */,
