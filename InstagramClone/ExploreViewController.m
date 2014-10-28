@@ -36,15 +36,19 @@
 -(void)addFollower{
     PFQuery *query = [PFUser query];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"%@",objects);
 
-            [[PFUser currentUser] setObject:objects[3] forKey:@"following"];
-            [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                [objects[3] setObject:[PFUser currentUser] forKey:@"follower"];
-                [objects[3] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    NSLog(@"SAved follower");
-                }];
+        if (!error) {
+            PFUser *user = [objects objectAtIndex:4];
+            [[PFUser currentUser]  addObject:user forKey:@"following"];
+            [user addObject:[PFUser currentUser] forKey:@"followers"];
+
+            [PFObject saveAllInBackground:@[user, [PFUser currentUser]] block:^(BOOL succeeded, NSError *error) {
+                NSLog(@"SAVE ALL WORKED");
+
+                if(succeeded){
+                    NSLog(@"SAVE ALL WORKED");
+                }
+                
             }];
         } else {
             // Log details of the failure
