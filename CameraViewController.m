@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImagePickerController *imagePicker =
-    [[UIImagePickerController alloc] init];
+
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
 
     imagePicker.delegate = self;
 
@@ -28,7 +28,8 @@
 
     [self presentViewController:imagePicker
                        animated:YES completion:nil];
-}
+
+  }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
@@ -37,6 +38,8 @@
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage])
     {
         self.imageView.image = info[@"UIImagePickerControllerOriginalImage"];
+        [self uploadImage:info];
+
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
     {
@@ -44,6 +47,35 @@
     }
 
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)uploadImage:(NSDictionary *)photoInfo{
+    NSLog(@"%@",[PFUser currentUser]);
+    NSData *imageData = UIImageJPEGRepresentation(photoInfo[@"UIImagePickerControllerOriginalImage"], 0.5f);
+    PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@-image", [PFUser currentUser][@"username"]] data:imageData];
+
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+        [photo setObject:imageFile forKey:@"imageFile"];
+
+        photo.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+
+        PFUser *user = [PFUser currentUser];
+        [photo setObject:user forKey:@"user"];
+
+        [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                NSLog(@"Success upload");
+            }
+            else{
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+
+    } progressBlock:^(int percentDone) {
+        NSLog(@"%i", percentDone);
+    }];
+
 }
 
 
