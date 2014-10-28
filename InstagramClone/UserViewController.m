@@ -9,6 +9,7 @@
 #import "UserViewController.h"
 #import <Parse/Parse.h>
 #import "CustomCollectionViewCell.h"
+#import "Photo.h"
 @interface UserViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -30,11 +31,9 @@
 }
 
 -(void)downloadImages{
-    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-    PFUser *user = [PFUser currentUser];
-    [query whereKey:@"user" equalTo:user];
+    PFQuery *query = [PFQuery queryWithClassName:[Photo parseClassName]];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"%@",objects);
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
             if (objects.count > 0) {
