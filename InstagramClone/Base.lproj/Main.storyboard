@@ -107,7 +107,7 @@
         <!--Profile-->
         <scene sceneID="9HW-Be-hpx">
             <objects>
-                <viewController id="dul-Jq-BOe" sceneMemberID="viewController">
+                <viewController id="dul-Jq-BOe" customClass="UserViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sqi-tG-CPl"/>
                         <viewControllerLayoutGuide type="bottom" id="sRC-nw-B7m"/>
@@ -115,9 +115,39 @@
                     <view key="view" contentMode="scaleToFill" id="bDg-20-4Mt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwH-GE-RNX">
+                                <rect key="frame" x="276" y="35" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QSD-Mj-ydp">
+                                <rect key="frame" x="252" y="119" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raj-s7-h3l">
+                                <rect key="frame" x="252" y="180" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QSD-Mj-ydp" firstAttribute="top" secondItem="ZwH-GE-RNX" secondAttribute="bottom" constant="63" id="DsI-LG-EDP"/>
+                            <constraint firstAttribute="centerX" secondItem="ZwH-GE-RNX" secondAttribute="centerX" id="FuR-jI-PRD"/>
+                            <constraint firstItem="ZwH-GE-RNX" firstAttribute="top" secondItem="sqi-tG-CPl" secondAttribute="bottom" constant="15" id="N8O-S7-3cC"/>
+                            <constraint firstAttribute="centerX" secondItem="QSD-Mj-ydp" secondAttribute="centerX" id="TS9-2w-1sv"/>
+                            <constraint firstItem="raj-s7-h3l" firstAttribute="top" secondItem="QSD-Mj-ydp" secondAttribute="bottom" constant="31" id="qML-J3-ov1"/>
+                            <constraint firstAttribute="centerX" secondItem="raj-s7-h3l" secondAttribute="centerX" id="uyO-f1-1Ap"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="QPC-bS-jjQ"/>
+                    <connections>
+                        <outlet property="userEmailTextField" destination="QSD-Mj-ydp" id="hVa-P3-1z3"/>
+                        <outlet property="usernameTextField" destination="raj-s7-h3l" id="NCm-0H-nrg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztb-xp-8Ho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

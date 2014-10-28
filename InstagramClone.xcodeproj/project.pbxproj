@@ -35,8 +35,8 @@
 		5D1A34FA19FEE78C003EB192 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */; };
 		5D1A34FC19FEE831003EB192 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FB19FEE831003EB192 /* CoreAudio.framework */; };
 		5D1A34FE19FEE8F8003EB192 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FD19FEE8F8003EB192 /* Accounts.framework */; };
-		5DEC4B1819FF34C800DE1D3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1719FF34C800DE1D3D /* CameraViewController.m */; };
 		81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E10C5419FEEA97000FE364 /* ExploreViewController.m */; };
+		CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAD416019FF3B9B008FFA5E /* UserViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,10 +87,10 @@
 		5D1A34ED19FEE78C003EB192 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5D1A34FB19FEE831003EB192 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		5D1A34FD19FEE8F8003EB192 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		5DEC4B1619FF34C800DE1D3D /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ../CameraViewController.h; sourceTree = "<group>"; };
-		5DEC4B1719FF34C800DE1D3D /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = ../CameraViewController.m; sourceTree = "<group>"; };
 		81E10C5319FEEA97000FE364 /* ExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreViewController.h; sourceTree = "<group>"; };
 		81E10C5419FEEA97000FE364 /* ExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreViewController.m; sourceTree = "<group>"; };
+		CCAD415F19FF3B9B008FFA5E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		CCAD416019FF3B9B008FFA5E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +157,8 @@
 				5D15C7CA19FED2B100F1A62F /* ViewController.h */,
 				5D15C7CB19FED2B100F1A62F /* ViewController.m */,
 				5D15C7CD19FED2B100F1A62F /* Main.storyboard */,
+				CCAD415F19FF3B9B008FFA5E /* UserViewController.h */,
+				CCAD416019FF3B9B008FFA5E /* UserViewController.m */,
 				81E10C5319FEEA97000FE364 /* ExploreViewController.h */,
 				81E10C5419FEEA97000FE364 /* ExploreViewController.m */,
 				5D15C7EC19FED99D00F1A62F /* Models */,
@@ -331,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */,
 				81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */,
 				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
 				5D15C7EF19FED9CE00F1A62F /* Photo.m in Sources */,
