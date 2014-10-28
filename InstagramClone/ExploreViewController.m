@@ -9,11 +9,12 @@
 #import "ExploreViewController.h"
 #import <Parse/Parse.h>
 
-@interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *exploreTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *usersArray;
+@property NSArray *searchUsernameResults;
 
 @end
 
@@ -51,6 +52,22 @@
     }];
 
 }
+- (IBAction)onTextFieldDidEndEditing:(UITextField *)sender {
+    PFQuery *usernameQuery = [PFUser query];
+    [usernameQuery whereKey:@"username" equalTo: self.exploreTextField.text];
+    [usernameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+
+        if (error) {
+            NSLog(@"Error %@", error);
+        } else {
+            NSLog(@"objects after text field %@", objects);
+            self.usersArray = objects;
+            [self.tableView reloadData];
+        }
+    }];
+
+}
+
 
 -(void)addFollower{
     PFQuery *query = [PFUser query];
