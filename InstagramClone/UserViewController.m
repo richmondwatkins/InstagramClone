@@ -41,7 +41,6 @@
                     [self.imagesArray addObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]]];
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"%@",self.imagesArray);
                     [self.collectionView reloadData];
                 });
             }
