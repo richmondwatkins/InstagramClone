@@ -123,6 +123,7 @@
 -(void)downloadImages:(PFUser *)user{
     PFQuery *query = [PFQuery queryWithClassName:[Photo parseClassName]];
     [query whereKey:@"user" equalTo:user];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
@@ -160,7 +161,7 @@
     NSDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
     Photo *photoObject = photoDictionary[@"photoData"];
     cell.imageActual.image = photoDictionary[@"photoImage"];
-    cell.friendsName.text = @"go time";
+    cell.friendsName.text = photoDictionary[@"photoData"][@"user"][@"username"];
 
     PFQuery *favoritesQuery = [Favorite query];
     [favoritesQuery whereKey:@"owner" equalTo:[PFUser currentUser]];
