@@ -33,6 +33,7 @@
 		5D1A34FC19FEE831003EB192 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FB19FEE831003EB192 /* CoreAudio.framework */; };
 		5D1A34FE19FEE8F8003EB192 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FD19FEE8F8003EB192 /* Accounts.framework */; };
 		5D51464F1A0093B300E4AD2B /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D51464E1A0093B300E4AD2B /* Favorite.m */; };
+		5D5146521A00A63100E4AD2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5146511A00A63100E4AD2B /* Tag.m */; };
 		5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */; };
 		5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8974D81A00585500582E47 /* FollowingRelations.m */; };
 		5DC464D81A00120000786AD4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC464D71A00120000786AD4 /* Photo.m */; };
@@ -78,6 +79,8 @@
 		5D1A34FD19FEE8F8003EB192 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5D51464D1A0093B300E4AD2B /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		5D51464E1A0093B300E4AD2B /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
+		5D5146501A00A63100E4AD2B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		5D5146511A00A63100E4AD2B /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		5D61E6401A0036DD00D535A5 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		5D8974D71A00585500582E47 /* FollowingRelations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingRelations.h; path = InstagramClone/FollowingRelations.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				5DC464D71A00120000786AD4 /* Photo.m */,
 				5D51464D1A0093B300E4AD2B /* Favorite.h */,
 				5D51464E1A0093B300E4AD2B /* Favorite.m */,
+				5D5146501A00A63100E4AD2B /* Tag.h */,
+				5D5146511A00A63100E4AD2B /* Tag.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */,
 				5D51464F1A0093B300E4AD2B /* Favorite.m in Sources */,
 				5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */,
+				5D5146521A00A63100E4AD2B /* Tag.m in Sources */,
 				5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */,
 				5D15C7C919FED2B100F1A62F /* InstagramClone.xcdatamodeld in Sources */,
 				5D15C7C619FED2B100F1A62F /* AppDelegate.m in Sources */,
