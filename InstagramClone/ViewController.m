@@ -31,15 +31,18 @@
     [super viewDidLoad];
     self.cells = [NSMutableArray array];
     self.homeImagesArray = [NSMutableArray array];
-    self.homeFeedElements = @[@"home element 1", @"home element 2"];
-    if ([PFUser currentUser]) {
-        [self findFollowers];
+}
 
-    }
+
+
+-(void)refreshTable{
+    [self.homeImagesArray removeAllObjects];
+    [self findFollowers];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self.homeImagesArray removeAllObjects];
 
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
@@ -55,6 +58,8 @@
 
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
+    }else{
+        [self refreshTable];
     }
 }
 
@@ -145,6 +150,7 @@
                         PFObject *two = secondObject[@"photoData"];
                         return [two.createdAt compare:one.createdAt ];
                     }];
+
                     [self.tableView reloadData];
                 });
             }
@@ -155,7 +161,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return self.homeImagesArray.count;
+    return self.homeImagesArray.count;
 
 }
 
