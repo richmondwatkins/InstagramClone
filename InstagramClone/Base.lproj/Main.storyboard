@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SPB-xR-q55">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SPB-xR-q55">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Search-->
+        <!--Explore-->
         <scene sceneID="SWf-6X-kCW">
             <objects>
                 <viewController id="naT-M7-cuV" customClass="ExploreViewController" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kq9-6g-OXd">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kq9-6g-OXd">
                                 <rect key="frame" x="0.0" y="100" width="600" height="415"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gun-mA-Gne">
                                     <size key="itemSize" width="119" height="107"/>
@@ -55,7 +55,7 @@
                                     <outlet property="delegate" destination="naT-M7-cuV" id="92x-1a-VVh"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cyX-x7-VV2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cyX-x7-VV2">
                                 <rect key="frame" x="0.0" y="100" width="600" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -91,7 +91,7 @@
                                     <outlet property="delegate" destination="naT-M7-cuV" id="FJP-GD-wOi"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-id-WYc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-id-WYc">
                                 <rect key="frame" x="54" y="62" width="493" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -99,7 +99,7 @@
                                     <action selector="searchEditingEndedOnExit:" destination="naT-M7-cuV" eventType="editingDidEndOnExit" id="9Io-hO-asJ"/>
                                 </connections>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pRw-6R-BAZ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pRw-6R-BAZ">
                                 <rect key="frame" x="251" y="28" width="99" height="29"/>
                                 <segments>
                                     <segment title="Users"/>
@@ -127,7 +127,7 @@
                             <constraint firstItem="kq9-6g-OXd" firstAttribute="leading" secondItem="cyX-x7-VV2" secondAttribute="leading" id="w9M-fO-SKC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="Bm5-7z-lmr"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="wind_rose-32" id="Bm5-7z-lmr"/>
                     <connections>
                         <outlet property="collectionView" destination="kq9-6g-OXd" id="xhq-P5-V5U"/>
                         <outlet property="exploreTextField" destination="lDr-id-WYc" id="eCA-8J-Z6t"/>
@@ -191,7 +191,7 @@
                             <constraint firstAttribute="trailing" secondItem="HFV-mL-QDg" secondAttribute="trailing" id="uFh-TZ-Ks1"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" id="EfF-dz-qfB"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="integrated_webcam_filled-32" id="EfF-dz-qfB"/>
                     <connections>
                         <outlet property="descriptionText" destination="eg4-qf-7hu" id="GBo-pZ-IAC"/>
                         <outlet property="imageView" destination="HFV-mL-QDg" id="wWr-ut-Gla"/>
@@ -213,9 +213,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwH-GE-RNX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwH-GE-RNX">
                                 <rect key="frame" x="276" y="35" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -229,7 +229,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-BC-840">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-BC-840">
                                 <rect key="frame" x="-8" y="230" width="616" height="321"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nlF-vZ-edx">
                                     <size key="itemSize" width="249" height="160"/>
@@ -261,9 +261,9 @@
                                     <outlet property="delegate" destination="dul-Jq-BOe" id="Tpp-Nt-Lpg"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7H7-aC-N9Q">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7H7-aC-N9Q">
                                 <rect key="frame" x="340" y="140" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -277,9 +277,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0Q-vP-EwI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0Q-vP-EwI">
                                 <rect key="frame" x="197" y="140" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -306,7 +306,7 @@
                             <constraint firstAttribute="centerX" secondItem="S0Q-vP-EwI" secondAttribute="centerX" constant="66" id="xfJ-s1-yph"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="QPC-bS-jjQ"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="children-32" id="QPC-bS-jjQ"/>
                     <connections>
                         <outlet property="collectionView" destination="OVL-BC-840" id="xeP-bU-rEN"/>
                         <outlet property="followersTextField" destination="nCG-yt-pyq" id="iNu-4P-Si0"/>
@@ -331,7 +331,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="463" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy4-Ss-GE4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="463" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uy4-Ss-GE4">
                                 <rect key="frame" x="0.0" y="20" width="600" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -353,7 +353,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-2T-B6a">
                                                     <rect key="frame" x="8" y="15" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -369,13 +369,13 @@
                                                                 <subviews>
                                                                     <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Uu-59-oBq">
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NDT-5k-lq1">
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -457,7 +457,7 @@
                             <constraint firstItem="Uy4-Ss-GE4" firstAttribute="top" secondItem="NZD-yH-eDy" secondAttribute="bottom" id="wRx-Q8-UTv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="uKf-yY-yZ3"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_filled-32" id="uKf-yY-yZ3"/>
                     <connections>
                         <outlet property="tableView" destination="Uy4-Ss-GE4" id="0Cc-hb-WtG"/>
                         <segue destination="ZLA-JM-m9b" kind="presentation" identifier="Comment" id="KkV-j0-jpW"/>
@@ -556,8 +556,9 @@
         <scene sceneID="ZSD-yd-yRu">
             <objects>
                 <tabBarController id="SPB-xR-q55" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="UgW-hx-kKc">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="UgW-hx-kKc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -576,8 +577,12 @@
     </scenes>
     <resources>
         <image name="back" width="40" height="40"/>
+        <image name="children-32" width="32" height="32"/>
         <image name="hearticon" width="30" height="28"/>
         <image name="hearts-25" width="12" height="12"/>
+        <image name="home_filled-32" width="32" height="32"/>
+        <image name="integrated_webcam_filled-32" width="32" height="32"/>
         <image name="speech_bubble-25" width="12" height="12"/>
+        <image name="wind_rose-32" width="32" height="32"/>
     </resources>
 </document>
