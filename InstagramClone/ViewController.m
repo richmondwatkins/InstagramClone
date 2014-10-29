@@ -180,12 +180,18 @@
 
     PFQuery *commentsQuery = [Comment query];
     [commentsQuery whereKey:@"photo" equalTo:photoObject];
-
+    [commentsQuery includeKey:@"owner"];
     [commentsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         cell.comments = objects;
         [cell.commentTableView reloadData];
     }];
 
+    PFQuery *favoritesNumberQuery = [Favorite query];
+    [favoritesNumberQuery whereKey:@"photo" equalTo:photoObject];
+    [favoritesNumberQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        [cell.likesButton setTitle:[NSString stringWithFormat:@"%i", number] forState:UIControlStateNormal];
+    }];
+    
     [self.cells addObject:cell];
     return cell;
 }

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *friendsName;
 @property (strong, nonatomic) IBOutlet UITableView *commentTableView;
 @property NSArray *comments;
+@property (strong, nonatomic) IBOutlet UIButton *likesButton;
 
 
 +(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath;

@@ -15,7 +15,6 @@
 @implementation HomeTableViewCell
 
 +(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Cell created");
 
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
 
@@ -41,7 +40,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Table Created");
 
     return self.comments.count;
 }
@@ -53,8 +51,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
 
     Comment *comment = [self.comments objectAtIndex:indexPath.row];
-    cell.textLabel.text = comment[@"commentText"];
-    NSLog(@"IN CUSTOM TABLE %@",self.comments);
+    cell.textLabel.text = comment[@"owner"][@"username"];
+    cell.detailTextLabel.text = comment[@"commentText"];
     return cell;
 }
 
