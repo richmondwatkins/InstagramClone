@@ -160,6 +160,7 @@
     NSDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
     Photo *photoObject = photoDictionary[@"photoData"];
     cell.imageActual.image = photoDictionary[@"photoImage"];
+    cell.friendsName.text = @"go time";
 
     PFQuery *favoritesQuery = [Favorite query];
     [favoritesQuery whereKey:@"owner" equalTo:[PFUser currentUser]];
@@ -186,7 +187,6 @@
     Favorite *favorite = [Favorite object];
     favorite.owner = [PFUser currentUser];
     favorite.photo = photo;
-
     [favorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         cell.heartImageView.hidden = NO;
     }];
