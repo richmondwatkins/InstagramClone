@@ -11,13 +11,14 @@
 
 #import "SearchTableViewCell.h"
 #import "SearchTableViewCell.h"
+#import "FollowingRelations.h"
+#import "Tag.h"
 @interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, SearchDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *exploreTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *usersArray;
-@property NSArray *searchUsernameResults;
-
+@property BOOL isSearchingUsers;
 @end
 
 @implementation ExploreViewController
@@ -25,9 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.isSearchingUsers = YES;
     self.usersArray = [NSArray array];
     [self refreshDisplay];
-    [self addFollower];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -40,6 +41,17 @@
     cell.delegate = self;
     PFUser *user = [self.usersArray objectAtIndex:indexPath.row];
     cell.textLabel.text = user[@"username"];
+
+    PFQuery *followerQuery = [FollowingRelations query];
+    [followerQuery whereKey:@"follower" equalTo:[PFUser currentUser]];
+    [followerQuery whereKey:@"following" equalTo:user];
+    cell.addFriendButton.hidden = YES;
+    [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects.count <= 0) {
+            cell.addFriendButton.hidden = NO;
+        }
+    }];
+
     return cell;
 }
 
@@ -73,32 +85,69 @@
 }
 
 
--(void)addFriendButtonTapped{
-    NSLog(@"TAP in Explore");
-}
+-(void)addFriendButtonTapped:(UIButton *)button{
+    CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
 
--(void)addFollower{
-    PFQuery *query = [PFUser query];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    PFUser *selectedUser = [self.usersArray objectAtIndex:indexPath.row];
 
-        if (!error) {
-            PFUser *user = [objects objectAtIndex:4];
-            [[PFUser currentUser]  addObject:user forKey:@"following"];
-            [user addObject:[PFUser currentUser] forKey:@"followers"];
+    FollowingRelations *followerFollowing = [FollowingRelations object];
+    followerFollowing.following = selectedUser;
+    followerFollowing.follower = [PFUser currentUser];
 
-            [PFObject saveAllInBackground:@[user, [PFUser currentUser]] block:^(BOOL succeeded, NSError *error) {
-                NSLog(@"SAVE ALL WORKED");
-
-                if(succeeded){
-                    NSLog(@"SAVE ALL WORKED");
-                }
-                
-            }];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+    [followerFollowing saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            button.hidden = YES;
         }
     }];
 }
+
+- (IBAction)searchUserOrTags:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex) {
+        self.isSearchingUsers = NO;
+    }else{
+        self.isSearchingUsers = YES;
+    }
+}
+- (IBAction)searchEditingEndedOnExit:(id)sender {
+    PFQuery *query;
+    NSString *key;
+    if (self.isSearchingUsers) {
+        key = @"username";
+        query = [PFUser query];
+    }else{
+        key = @"tagText";
+        query = [Tag query];
+    }
+
+    [self performSearchWithQuery:(PFQuery *)query withKey:(NSString *)key];
+
+}
+
+-(void)performSearchWithQuery:(PFQuery *)query withKey:(NSString *)key{
+
+    [query whereKey:key equalTo: self.exploreTextField.text];
+    if (self.isSearchingUsers == NO) {
+        NSLog(@"TAG");
+        [query includeKey:@"photo"];
+    }
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+
+        if (error) {
+            NSLog(@"Error %@", error);
+        } else {
+
+            if (self.isSearchingUsers == NO) {
+                NSLog(@"objects after text field %@", objects.firstObject[@"photo"]);
+            }
+
+            self.usersArray = objects;
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+
 
 @end

@@ -10,14 +10,19 @@
 
 @implementation HomeTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
++(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath{
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
+
+    UITapGestureRecognizer *doubleTapFolderGesture = [[UITapGestureRecognizer alloc] initWithTarget:cell action:@selector(favoritePhoto)];
+    [doubleTapFolderGesture setNumberOfTapsRequired:2];
+    [cell addGestureRecognizer:doubleTapFolderGesture];
+
+    cell.heartImageView.hidden = YES;
+    return cell;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)favoritePhoto{
+    [self.delegate favoritePhoto:self];
 }
 
 @end

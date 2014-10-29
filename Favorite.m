@@ -1,26 +1,24 @@
 //
-//  Photo.m
+//  Favorite.m
 //  InstagramClone
 //
 //  Created by Richmond on 10/28/14.
 //  Copyright (c) 2014 Richmond. All rights reserved.
 //
 
-#import "Photo.h"
+#import "Favorite.h"
 
-@implementation Photo
+@implementation Favorite
 
-@dynamic user;
-@dynamic imageFile;
-@dynamic description;
-@dynamic tags;
+@dynamic owner;
+@dynamic photo;
 
 +(void)load{
     [self registerSubclass];
 }
 
 +(NSString *)parseClassName{
-    return @"Photo";
+    return @"Favorite";
 }
 
 @end

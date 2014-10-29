@@ -10,7 +10,7 @@
 
 @protocol SearchDelegate <NSObject>
 
--(void)addFriendButtonTapped;
+-(void)addFriendButtonTapped:(UIButton *)button;
 
 @end
 

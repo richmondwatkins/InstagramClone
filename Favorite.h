@@ -1,5 +1,5 @@
 //
-//  Photo.h
+//  Favorite.h
 //  InstagramClone
 //
 //  Created by Richmond on 10/28/14.
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 #import <Parse/PFObject+Subclass.h>
-@interface Photo : PFObject <PFSubclassing>
-@property PFUser *user;
-@property PFFile *imageFile;
-@property NSString *description;
-@property NSArray *tags;
+#import "Photo.h"
+@interface Favorite : PFObject <PFSubclassing>
+
+@property PFUser *owner;
+@property Photo *photo;
 @end

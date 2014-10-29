@@ -8,11 +8,13 @@
 
 #import "SearchTableViewCell.h"
 
+
 @implementation SearchTableViewCell
 
 
 - (IBAction)onAddFriendButtonPressed:(UIButton *)sender {
-    [self.delegate addFriendButtonTapped];
+
+    [self.delegate addFriendButtonTapped:(UIButton *)sender];
 }
 
 @end
