@@ -15,7 +15,7 @@
 #import "FollowingRelations.h"
 #import "Favorite.h"
 #import "CommentViewController.h"
-
+#import "Comment.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate, HomeCellDelegate>
 @property NSArray *homeFeedElements;
 @property NSMutableArray *homeImagesArray;
@@ -176,6 +176,14 @@
         if (objects.count > 0) {
             cell.heartImageView.hidden = NO;
         }
+    }];
+
+    PFQuery *commentsQuery = [Comment query];
+    [commentsQuery whereKey:@"photo" equalTo:photoObject];
+
+    [commentsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        cell.comments = objects;
+        [cell.commentTableView reloadData];
     }];
 
     [self.cells addObject:cell];

@@ -7,7 +7,7 @@
 //
 
 #import "HomeTableViewCell.h"
-
+#import "Comment.h"
 @interface HomeTableViewCell ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -43,13 +43,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"Table Created");
 
-    return 2;
+    return self.comments.count;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    tableView.alwaysBounceVertical = NO;
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
 
+    Comment *comment = [self.comments objectAtIndex:indexPath.row];
+    cell.textLabel.text = comment[@"commentText"];
+    NSLog(@"IN CUSTOM TABLE %@",self.comments);
     return cell;
 }
 

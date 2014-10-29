@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *heartImageView;
 @property (weak, nonatomic) IBOutlet UILabel *friendsName;
 @property (strong, nonatomic) IBOutlet UITableView *commentTableView;
+@property NSArray *comments;
+
 
 +(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath;
 
