@@ -10,11 +10,13 @@
 #import <Parse/Parse.h>
 #import "CustomCollectionViewCell.h"
 #import "Photo.h"
+#import "FollowingRelations.h"
 @interface UserViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *imagesArray;
+
 @end
 
 @implementation UserViewController
@@ -26,7 +28,7 @@
     self.userEmailTextField.text = [PFUser currentUser][@"email"];
     self.usernameTextField.text = [PFUser currentUser][@"email"];
 
-    NSLog(@"%@", [PFUser currentUser]);
+    [self findAllFollowers];
     [self downloadImages];
 }
 
@@ -60,6 +62,19 @@
     cell.cellImageView.image = [self.imagesArray objectAtIndex:indexPath.row];
 
     return cell;
+}
+
+-(void)findAllFollowers{
+    PFQuery *queryFollowers = [PFQuery queryWithClassName:[FollowingRelations parseClassName]];
+    [queryFollowers whereKey:@"follower" equalTo:[PFUser currentUser]];
+    [queryFollowers includeKey:@"following"];
+
+    [queryFollowers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for(PFUser *user in objects){
+            NSLog(@"%@",user[@"following"]);
+        }
+    }];
+
 }
 
 @end

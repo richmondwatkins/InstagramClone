@@ -33,6 +33,7 @@
 		5D1A34FC19FEE831003EB192 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FB19FEE831003EB192 /* CoreAudio.framework */; };
 		5D1A34FE19FEE8F8003EB192 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FD19FEE8F8003EB192 /* Accounts.framework */; };
 		5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */; };
+		5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8974D81A00585500582E47 /* FollowingRelations.m */; };
 		5DC464D81A00120000786AD4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC464D71A00120000786AD4 /* Photo.m */; };
 		5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1B19FF46EC00DE1D3D /* CameraViewController.m */; };
 		5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1F19FF596300DE1D3D /* CustomCollectionViewCell.m */; };
@@ -76,6 +77,8 @@
 		5D1A34FD19FEE8F8003EB192 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5D61E6401A0036DD00D535A5 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		5D8974D71A00585500582E47 /* FollowingRelations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingRelations.h; path = InstagramClone/FollowingRelations.h; sourceTree = "<group>"; };
+		5D8974D81A00585500582E47 /* FollowingRelations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowingRelations.m; path = InstagramClone/FollowingRelations.m; sourceTree = "<group>"; };
 		5DC464D61A00120000786AD4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		5DC464D71A00120000786AD4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		5DEC4B1A19FF46EC00DE1D3D /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ../CameraViewController.h; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 		5DC464D21A0010EA00786AD4 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				5D8974D71A00585500582E47 /* FollowingRelations.h */,
+				5D8974D81A00585500582E47 /* FollowingRelations.m */,
 				5DC464D61A00120000786AD4 /* Photo.h */,
 				5DC464D71A00120000786AD4 /* Photo.m */,
 			);
@@ -312,6 +317,7 @@
 				5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */,
 				5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */,
 				5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */,
+				5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */,
 				5D15C7C919FED2B100F1A62F /* InstagramClone.xcdatamodeld in Sources */,
 				5D15C7C619FED2B100F1A62F /* AppDelegate.m in Sources */,
 				5D15C7CC19FED2B100F1A62F /* ViewController.m in Sources */,

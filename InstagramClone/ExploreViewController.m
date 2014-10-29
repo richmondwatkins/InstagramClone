@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "SearchTableViewCell.h"
 #import "SearchTableViewCell.h"
+#import "FollowingRelations.h"
 @interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, SearchDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *exploreTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -25,7 +26,7 @@
 
     self.usersArray = [NSArray array];
     [self refreshDisplay];
-    [self addFollower];
+//    [self addFollower];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -55,8 +56,21 @@
 
 }
 
--(void)addFriendButtonTapped{
-    NSLog(@"TAP in Explore");
+-(void)addFriendButtonTapped:(UIButton *)button{
+    CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+
+    PFUser *selectedUser = [self.usersArray objectAtIndex:indexPath.row];
+
+    FollowingRelations *followerFollowing = [FollowingRelations object];
+    followerFollowing.following = selectedUser;
+    followerFollowing.follower = [PFUser currentUser];
+
+    [followerFollowing saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            button.hidden = YES;
+        }
+    }];
 }
 
 -(void)addFollower{
@@ -66,7 +80,8 @@
         if (!error) {
             PFUser *user = [objects objectAtIndex:4];
             [[PFUser currentUser]  addObject:user forKey:@"following"];
-            [user addObject:[PFUser currentUser] forKey:@"followers"];
+//            [user addObject:[PFUser currentUser] forKey:@"followers"];
+
 
             [PFObject saveAllInBackground:@[user, [PFUser currentUser]] block:^(BOOL succeeded, NSError *error) {
                 NSLog(@"SAVE ALL WORKED");
