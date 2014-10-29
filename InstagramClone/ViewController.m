@@ -13,17 +13,18 @@
 #import "Photo.h"
 #import "HomeTableViewCell.h"
 #import "FollowingRelations.h"
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate, HomeCellDelegate>
 @property NSArray *homeFeedElements;
 @property NSMutableArray *homeImagesArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property NSMutableArray *cells;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cells = [NSMutableArray array];
     self.homeImagesArray = [NSMutableArray array];
     self.homeFeedElements = @[@"home element 1", @"home element 2"];
     if ([PFUser currentUser]) {
@@ -152,11 +153,18 @@
     return self.homeImagesArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
+- (HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    HomeTableViewCell *cell = [HomeTableViewCell createCellForTableView:tableView withIndexPath:indexPath];
+    cell.delegate = self;
+
     NSDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
     cell.imageActual.image = photoDictionary[@"photoImage"];
+    [self.cells addObject:cell];
     return cell;
+}
+
+-(void)favoritePhoto:(HomeTableViewCell *)cell{
+    cell.heartImageView.hidden = NO;
 }
 
 @end
