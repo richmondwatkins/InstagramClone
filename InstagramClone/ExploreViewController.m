@@ -11,12 +11,13 @@
 #import "SearchTableViewCell.h"
 #import "SearchTableViewCell.h"
 #import "FollowingRelations.h"
+#import "Tag.h"
 @interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, SearchDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *exploreTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *usersArray;
-
+@property BOOL isSearchingUsers;
 @end
 
 @implementation ExploreViewController
@@ -24,9 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.isSearchingUsers = YES;
     self.usersArray = [NSArray array];
     [self refreshDisplay];
-//    [self addFollower];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -84,29 +85,52 @@
     }];
 }
 
--(void)addFollower{
-    PFQuery *query = [PFUser query];
+- (IBAction)searchUserOrTags:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex) {
+        self.isSearchingUsers = NO;
+    }else{
+        self.isSearchingUsers = YES;
+    }
+}
+- (IBAction)searchEditingEndedOnExit:(id)sender {
+    PFQuery *query;
+    NSString *key;
+    if (self.isSearchingUsers) {
+        key = @"username";
+        query = [PFUser query];
+    }else{
+        key = @"tagText";
+        query = [Tag query];
+    }
+
+    [self performSearchWithQuery:(PFQuery *)query withKey:(NSString *)key];
+
+}
+
+-(void)performSearchWithQuery:(PFQuery *)query withKey:(NSString *)key{
+
+    [query whereKey:key equalTo: self.exploreTextField.text];
+    if (self.isSearchingUsers == NO) {
+        NSLog(@"TAG");
+        [query includeKey:@"photo"];
+    }
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 
-        if (!error) {
-            PFUser *user = [objects objectAtIndex:4];
-            [[PFUser currentUser]  addObject:user forKey:@"following"];
-//            [user addObject:[PFUser currentUser] forKey:@"followers"];
-
-
-            [PFObject saveAllInBackground:@[user, [PFUser currentUser]] block:^(BOOL succeeded, NSError *error) {
-                NSLog(@"SAVE ALL WORKED");
-
-                if(succeeded){
-                    NSLog(@"SAVE ALL WORKED");
-                }
-                
-            }];
+        if (error) {
+            NSLog(@"Error %@", error);
         } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+
+            if (self.isSearchingUsers == NO) {
+                NSLog(@"objects after text field %@", objects.firstObject[@"photo"]);
+            }
+
+            self.usersArray = objects;
+            [self.tableView reloadData];
         }
     }];
 }
+
+
 
 @end

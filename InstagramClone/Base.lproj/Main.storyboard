@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cyX-x7-VV2">
-                                <rect key="frame" x="0.0" y="53" width="600" height="498"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zrk-Zp-MaB" customClass="SearchTableViewCell">
@@ -54,18 +54,33 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-id-WYc">
-                                <rect key="frame" x="54" y="20" width="493" height="30"/>
+                                <rect key="frame" x="54" y="62" width="493" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchEditingEndedOnExit:" destination="naT-M7-cuV" eventType="editingDidEndOnExit" id="9Io-hO-asJ"/>
+                                </connections>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pRw-6R-BAZ">
+                                <rect key="frame" x="251" y="28" width="99" height="29"/>
+                                <segments>
+                                    <segment title="Users"/>
+                                    <segment title="Tags"/>
+                                </segments>
+                                <connections>
+                                    <action selector="searchUserOrTags:" destination="naT-M7-cuV" eventType="valueChanged" id="Zay-vD-6sP"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cyX-x7-VV2" firstAttribute="leading" secondItem="QON-K8-eRg" secondAttribute="leading" id="2oP-yT-yAH"/>
                             <constraint firstAttribute="centerX" secondItem="lDr-id-WYc" secondAttribute="centerX" id="4Na-Fr-LUE"/>
                             <constraint firstItem="cyX-x7-VV2" firstAttribute="bottom" secondItem="Trb-XT-kIe" secondAttribute="top" id="MK8-VY-r9A"/>
-                            <constraint firstItem="cyX-x7-VV2" firstAttribute="top" secondItem="lDr-id-WYc" secondAttribute="bottom" constant="3" id="edE-dt-dEr"/>
-                            <constraint firstItem="cyX-x7-VV2" firstAttribute="top" secondItem="nw7-h3-1x3" secondAttribute="bottom" constant="33" id="eoe-cQ-9lU"/>
+                            <constraint firstItem="pRw-6R-BAZ" firstAttribute="centerX" secondItem="lDr-id-WYc" secondAttribute="centerX" id="QKj-38-n8z"/>
+                            <constraint firstItem="cyX-x7-VV2" firstAttribute="top" secondItem="lDr-id-WYc" secondAttribute="bottom" constant="8" id="edE-dt-dEr"/>
+                            <constraint firstItem="cyX-x7-VV2" firstAttribute="top" secondItem="nw7-h3-1x3" secondAttribute="bottom" constant="80" id="eoe-cQ-9lU"/>
+                            <constraint firstItem="lDr-id-WYc" firstAttribute="top" secondItem="pRw-6R-BAZ" secondAttribute="bottom" constant="6" id="mzY-DG-9BK"/>
                             <constraint firstAttribute="trailing" secondItem="cyX-x7-VV2" secondAttribute="trailing" id="oUs-1e-w4o"/>
                             <constraint firstItem="lDr-id-WYc" firstAttribute="leading" secondItem="QON-K8-eRg" secondAttribute="leadingMargin" constant="38" id="sE4-dJ-v5m"/>
                         </constraints>
@@ -78,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thj-48-7yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2035" y="608"/>
+            <point key="canvasLocation" x="2035" y="616"/>
         </scene>
         <!--Camera-->
         <scene sceneID="tNr-R5-jk6">

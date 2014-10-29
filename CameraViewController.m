@@ -68,7 +68,7 @@
     photo.ACL = photoACL;
     
     [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
+
         NSMutableArray *readyTags = [NSMutableArray array];
         for(NSString *tag in self.tags){
             Tag *photoTag = [Tag object];
