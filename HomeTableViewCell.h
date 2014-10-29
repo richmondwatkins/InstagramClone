@@ -17,6 +17,7 @@
 @interface HomeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageActual;
 @property (strong, nonatomic) IBOutlet UIImageView *heartImageView;
+@property (weak, nonatomic) IBOutlet UILabel *friendsName;
 
 +(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath;
 

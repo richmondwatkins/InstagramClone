@@ -310,17 +310,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BE0-hl-tZh">
-                                                    <rect key="frame" x="8" y="13" width="584" height="306"/>
+                                                    <rect key="frame" x="8" y="57" width="584" height="263"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hearticon" translatesAutoresizingMaskIntoConstraints="NO" id="zKg-48-QWT">
-                                                    <rect key="frame" x="543" y="281" width="36" height="30"/>
+                                                    <rect key="frame" x="543" y="282" width="36" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="BdJ-MW-WoU"/>
                                                         <constraint firstAttribute="width" constant="36" id="yB1-2f-qSZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-9Y-PG6">
-                                                    <rect key="frame" x="8" y="347" width="68" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-9Y-PG6">
+                                                    <rect key="frame" x="8" y="348" width="68" height="30"/>
                                                     <state key="normal" title="Comment">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -328,21 +328,30 @@
                                                         <action selector="onCommentButtonTapped:" destination="tGI-5A-4xJ" eventType="touchUpInside" id="c9c-59-BE4"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-2T-B6a">
+                                                    <rect key="frame" x="279" y="22" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BE0-hl-tZh" firstAttribute="top" secondItem="Lrr-Of-H4g" secondAttribute="top" constant="13" id="6K6-0q-Poj"/>
+                                                <constraint firstItem="BE0-hl-tZh" firstAttribute="top" secondItem="Lrr-Of-H4g" secondAttribute="top" constant="57" id="6K6-0q-Poj"/>
                                                 <constraint firstItem="BE0-hl-tZh" firstAttribute="centerX" secondItem="Lrr-Of-H4g" secondAttribute="centerX" id="99t-Fa-Jid"/>
                                                 <constraint firstItem="BE0-hl-tZh" firstAttribute="leading" secondItem="Lrr-Of-H4g" secondAttribute="leadingMargin" id="9HK-e8-5Wq"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zKg-48-QWT" secondAttribute="bottom" constant="66" id="FhK-Vc-Jzs"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BE0-hl-tZh" secondAttribute="bottom" constant="58" id="Izp-KG-fR7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BE0-hl-tZh" secondAttribute="bottom" constant="57" id="Izp-KG-fR7"/>
                                                 <constraint firstItem="zKg-48-QWT" firstAttribute="bottom" secondItem="BE0-hl-tZh" secondAttribute="bottom" constant="-8" id="Lpp-kv-bw3"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BE0-hl-tZh" secondAttribute="bottom" constant="58" id="RbT-3T-nep"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BE0-hl-tZh" secondAttribute="bottom" constant="57" id="RbT-3T-nep"/>
+                                                <constraint firstAttribute="centerX" secondItem="rlJ-2T-B6a" secondAttribute="centerX" id="Z3w-LK-eq4"/>
                                                 <constraint firstItem="eUD-9Y-PG6" firstAttribute="leading" secondItem="Lrr-Of-H4g" secondAttribute="leading" constant="8" id="haM-35-zjn"/>
+                                                <constraint firstItem="BE0-hl-tZh" firstAttribute="top" secondItem="rlJ-2T-B6a" secondAttribute="bottom" constant="14" id="lb3-2N-jk1"/>
                                                 <constraint firstAttribute="bottom" secondItem="eUD-9Y-PG6" secondAttribute="bottom" constant="7" id="n0o-7c-Rph"/>
                                                 <constraint firstItem="zKg-48-QWT" firstAttribute="trailing" secondItem="BE0-hl-tZh" secondAttribute="trailing" constant="-13" id="pDS-CO-DgN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="friendsName" destination="rlJ-2T-B6a" id="C58-Jg-hWx"/>
                                             <outlet property="heartImageView" destination="zKg-48-QWT" id="S5N-cd-y51"/>
                                             <outlet property="imageActual" destination="BE0-hl-tZh" id="HwQ-eh-Ssv"/>
                                         </connections>
@@ -370,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUE-7I-zDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="-62"/>
+            <point key="canvasLocation" x="1929" y="-63"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="ZTN-sM-WqL">
