@@ -57,8 +57,10 @@
     Photo *photo = [Photo object];
     photo.user = [PFUser currentUser];
     photo.imageFile = imageFile;
-    photo.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    
+    PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [photoACL setPublicReadAccess:YES];
+    photo.ACL = photoACL;
+
     [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(@"Success upload");
     }];

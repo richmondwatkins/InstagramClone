@@ -12,7 +12,7 @@
 #import "SearchTableViewCell.h"
 #import "Photo.h"
 #import "HomeTableViewCell.h"
-
+#import "FollowingRelations.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 @property NSArray *homeFeedElements;
 @property NSMutableArray *homeImagesArray;
@@ -26,6 +26,10 @@
     [super viewDidLoad];
     self.homeImagesArray = [NSMutableArray array];
     self.homeFeedElements = @[@"home element 1", @"home element 2"];
+    if ([PFUser currentUser]) {
+        [self findFollowers];
+
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,8 +49,6 @@
 
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-    }else{
-        [self downloadImages];
     }
 }
 
@@ -103,19 +105,41 @@
     NSLog(@"User dismissed the signUpViewController");
 }
 
--(void)downloadImages{
+-(void)findFollowers{
+    PFQuery *queryFollowers = [PFQuery queryWithClassName:[FollowingRelations parseClassName]];
+    [queryFollowers whereKey:@"follower" equalTo:[PFUser currentUser]];
+
+    [queryFollowers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for(PFUser *user in objects){
+            [self downloadImages:user[@"following"]];
+        }
+        [self downloadImages:[PFUser currentUser]];
+    }];
+
+}
+
+-(void)downloadImages:(PFUser *)user{
     PFQuery *query = [PFQuery queryWithClassName:[Photo parseClassName]];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"user" equalTo:user];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
             if (objects.count > 0) {
                 for (PFObject *eachObject in objects) {
-                    [self.homeImagesArray addObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]]];
+                    NSMutableDictionary *objectDictionary = [NSMutableDictionary new];
+                    [objectDictionary setObject:eachObject forKey:@"photoData"];
+                    [objectDictionary setObject:[UIImage imageWithData:[eachObject[@"imageFile"] getData]] forKey:@"photoImage"];
+                    [self.homeImagesArray addObject:objectDictionary];
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{
+
+                    [self.homeImagesArray sortUsingComparator:^(NSMutableDictionary *firstObject, NSMutableDictionary *secondObject) {
+                        PFObject *one = firstObject[@"photoData"];
+                        PFObject *two = secondObject[@"photoData"];
+                        return [two.createdAt compare:one.createdAt ];
+                    }];
                     [self.tableView reloadData];
-//                    NSLog(@"%@", self.homeImagesArray);
                 });
             }
         });
@@ -130,7 +154,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
-    cell.imageActual.image = [self.homeImagesArray objectAtIndex:indexPath.row];
+    NSDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
+    cell.imageActual.image = photoDictionary[@"photoImage"];
     return cell;
 }
 
