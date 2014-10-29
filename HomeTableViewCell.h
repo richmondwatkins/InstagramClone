@@ -11,7 +11,7 @@
 @protocol HomeCellDelegate
 
 -(void)favoritePhoto:(id)cell;
-
+-(void)commentOnPhoto:(id)cell;
 @end
 
 @interface HomeTableViewCell : UITableViewCell

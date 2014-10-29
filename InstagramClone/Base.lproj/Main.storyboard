@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SPB-xR-q55">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SPB-xR-q55">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -324,6 +324,9 @@
                                                     <state key="normal" title="Comment">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onCommentButtonTapped:" destination="tGI-5A-4xJ" eventType="touchUpInside" id="c9c-59-BE4"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -362,11 +365,84 @@
                     <tabBarItem key="tabBarItem" title="Home" id="uKf-yY-yZ3"/>
                     <connections>
                         <outlet property="tableView" destination="Uy4-Ss-GE4" id="0Cc-hb-WtG"/>
+                        <segue destination="ZLA-JM-m9b" kind="presentation" identifier="Comment" id="KkV-j0-jpW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUE-7I-zDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1929" y="-62"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="ZTN-sM-WqL">
+            <objects>
+                <viewController id="ZLA-JM-m9b" customClass="CommentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rGz-DD-br5"/>
+                        <viewControllerLayoutGuide type="bottom" id="uPj-uK-5Fi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dld-sU-UuO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gP9-Iw-di8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Two-cS-fjR" detailTextLabel="NQe-Bf-BhP" style="IBUITableViewCellStyleSubtitle" id="KCk-zN-Cpw">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KCk-zN-Cpw" id="hfd-4b-5Ir">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Two-cS-fjR">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NQe-Bf-BhP">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZLA-JM-m9b" id="7en-vk-2gD"/>
+                                    <outlet property="delegate" destination="ZLA-JM-m9b" id="0n7-aJ-P0B"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8u-Wf-pJi">
+                                <rect key="frame" x="16" y="267" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="commentingDidReturn:" destination="ZLA-JM-m9b" eventType="editingDidEndOnExit" id="9JA-8m-nMo"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I8u-Wf-pJi" firstAttribute="leading" secondItem="dld-sU-UuO" secondAttribute="leadingMargin" id="MAM-vp-1Wq"/>
+                            <constraint firstItem="gP9-Iw-di8" firstAttribute="bottom" secondItem="uPj-uK-5Fi" secondAttribute="top" id="Muk-sk-SyB"/>
+                            <constraint firstItem="gP9-Iw-di8" firstAttribute="top" secondItem="dld-sU-UuO" secondAttribute="top" id="ZCL-dD-sMq"/>
+                            <constraint firstItem="I8u-Wf-pJi" firstAttribute="centerX" secondItem="dld-sU-UuO" secondAttribute="centerX" id="tbr-TA-TTY"/>
+                            <constraint firstItem="I8u-Wf-pJi" firstAttribute="top" secondItem="rGz-DD-br5" secondAttribute="bottom" constant="247" id="xE6-Ff-KWC"/>
+                            <constraint firstItem="gP9-Iw-di8" firstAttribute="centerX" secondItem="I8u-Wf-pJi" secondAttribute="centerX" id="xQk-iI-AWH"/>
+                            <constraint firstItem="gP9-Iw-di8" firstAttribute="leading" secondItem="dld-sU-UuO" secondAttribute="leading" id="zoM-Bn-B3V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="I8u-Wf-pJi" id="D3T-el-xoV"/>
+                        <outlet property="tableView" destination="gP9-Iw-di8" id="ov8-ed-zsV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rks-mY-yEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2611" y="-62"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZSD-yd-yRu">

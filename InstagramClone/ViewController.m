@@ -14,11 +14,14 @@
 #import "HomeTableViewCell.h"
 #import "FollowingRelations.h"
 #import "Favorite.h"
+#import "CommentViewController.h"
+
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate, HomeCellDelegate>
 @property NSArray *homeFeedElements;
 @property NSMutableArray *homeImagesArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *cells;
+@property Photo *selectedPhotoForComment;
 @end
 
 @implementation ViewController
@@ -190,6 +193,24 @@
     [favorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         cell.heartImageView.hidden = NO;
     }];
+}
+
+-(void)commentOnPhoto:(HomeTableViewCell *)cell{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+
+    NSMutableDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
+
+    self.selectedPhotoForComment = photoDictionary[@"photoData"];
+
+    [self performSegueWithIdentifier:@"Comment" sender:self];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"Comment"]) {
+        CommentViewController *commentViewCtrl = segue.destinationViewController;
+        commentViewCtrl.photo = self.selectedPhotoForComment;
+    }
 }
 
 @end

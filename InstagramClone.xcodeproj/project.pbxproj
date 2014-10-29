@@ -15,7 +15,6 @@
 		5D15C7D119FED2B100F1A62F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7D019FED2B100F1A62F /* Images.xcassets */; };
 		5D15C7D419FED2B100F1A62F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D15C7D219FED2B100F1A62F /* LaunchScreen.xib */; };
 		5D15C7F119FEDA2300F1A62F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D15C7F019FEDA2300F1A62F /* MapKit.framework */; };
-		5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D15C7F319FEDB2000F1A62F /* Comment.m */; };
 		5D1A34DF19FEE716003EB192 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34DD19FEE716003EB192 /* Bolts.framework */; };
 		5D1A34E019FEE716003EB192 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34DE19FEE716003EB192 /* Parse.framework */; };
 		5D1A34EE19FEE78C003EB192 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34E119FEE78C003EB192 /* AudioToolbox.framework */; };
@@ -36,6 +35,8 @@
 		5D5146521A00A63100E4AD2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5146511A00A63100E4AD2B /* Tag.m */; };
 		5D5146551A00B79B00E4AD2B /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5146541A00B79B00E4AD2B /* SearchCollectionViewCell.m */; };
 		5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */; };
+		5D86EFDE1A016E900073EAAD /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86EFDD1A016E900073EAAD /* CommentViewController.m */; };
+		5D86EFE11A0174AB0073EAAD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86EFE01A0174AB0073EAAD /* Comment.m */; };
 		5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8974D81A00585500582E47 /* FollowingRelations.m */; };
 		5DC464D81A00120000786AD4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC464D71A00120000786AD4 /* Photo.m */; };
 		5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC4B1B19FF46EC00DE1D3D /* CameraViewController.m */; };
@@ -60,8 +61,6 @@
 		5D15C7DE19FED2B100F1A62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D15C7DF19FED2B100F1A62F /* InstagramCloneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramCloneTests.m; sourceTree = "<group>"; };
 		5D15C7F019FEDA2300F1A62F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		5D15C7F219FEDB2000F1A62F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		5D15C7F319FEDB2000F1A62F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		5D1A34DD19FEE716003EB192 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = InstagramClone/Bolts.framework; sourceTree = "<group>"; };
 		5D1A34DE19FEE716003EB192 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = InstagramClone/Parse.framework; sourceTree = "<group>"; };
 		5D1A34E119FEE78C003EB192 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -86,6 +85,10 @@
 		5D5146541A00B79B00E4AD2B /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCollectionViewCell.m; path = ../SearchCollectionViewCell.m; sourceTree = "<group>"; };
 		5D61E6401A0036DD00D535A5 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		5D86EFDC1A016E900073EAAD /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentViewController.h; path = ../CommentViewController.h; sourceTree = "<group>"; };
+		5D86EFDD1A016E900073EAAD /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentViewController.m; path = ../CommentViewController.m; sourceTree = "<group>"; };
+		5D86EFDF1A0174AB0073EAAD /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		5D86EFE01A0174AB0073EAAD /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		5D8974D71A00585500582E47 /* FollowingRelations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingRelations.h; path = InstagramClone/FollowingRelations.h; sourceTree = "<group>"; };
 		5D8974D81A00585500582E47 /* FollowingRelations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowingRelations.m; path = InstagramClone/FollowingRelations.m; sourceTree = "<group>"; };
 		5DC464D61A00120000786AD4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				5D15C7C519FED2B100F1A62F /* AppDelegate.m */,
 				5DEC4B1A19FF46EC00DE1D3D /* CameraViewController.h */,
 				5DEC4B1B19FF46EC00DE1D3D /* CameraViewController.m */,
+				5D86EFDC1A016E900073EAAD /* CommentViewController.h */,
+				5D86EFDD1A016E900073EAAD /* CommentViewController.m */,
 				5DEC4B1E19FF596300DE1D3D /* CustomCollectionViewCell.h */,
 				5DEC4B1F19FF596300DE1D3D /* CustomCollectionViewCell.m */,
 				5D15C7CA19FED2B100F1A62F /* ViewController.h */,
@@ -171,7 +176,6 @@
 				CCAD416019FF3B9B008FFA5E /* UserViewController.m */,
 				81E10C5319FEEA97000FE364 /* ExploreViewController.h */,
 				81E10C5419FEEA97000FE364 /* ExploreViewController.m */,
-				5D15C7EC19FED99D00F1A62F /* Models */,
 				5D15C7D019FED2B100F1A62F /* Images.xcassets */,
 				5D15C7D219FED2B100F1A62F /* LaunchScreen.xib */,
 				5D15C7C719FED2B100F1A62F /* InstagramClone.xcdatamodeld */,
@@ -206,18 +210,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5D15C7EC19FED99D00F1A62F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				5D15C7F219FEDB2000F1A62F /* Comment.h */,
-				5D15C7F319FEDB2000F1A62F /* Comment.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		5DC464D21A0010EA00786AD4 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				5D86EFDF1A0174AB0073EAAD /* Comment.h */,
+				5D86EFE01A0174AB0073EAAD /* Comment.m */,
 				5D8974D71A00585500582E47 /* FollowingRelations.h */,
 				5D8974D81A00585500582E47 /* FollowingRelations.m */,
 				5DC464D61A00120000786AD4 /* Photo.h */,
@@ -328,12 +325,13 @@
 				CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */,
 				5D5146551A00B79B00E4AD2B /* SearchCollectionViewCell.m in Sources */,
 				81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */,
+				5D86EFE11A0174AB0073EAAD /* Comment.m in Sources */,
 				CCE088481A00354C0074484E /* HomeTableViewCell.m in Sources */,
-				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
 				5DEC4B2019FF596300DE1D3D /* CustomCollectionViewCell.m in Sources */,
 				5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */,
 				5D51464F1A0093B300E4AD2B /* Favorite.m in Sources */,
 				5DEC4B1C19FF46EC00DE1D3D /* CameraViewController.m in Sources */,
+				5D86EFDE1A016E900073EAAD /* CommentViewController.m in Sources */,
 				5D5146521A00A63100E4AD2B /* Tag.m in Sources */,
 				5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */,
 				5D15C7C919FED2B100F1A62F /* InstagramClone.xcdatamodeld in Sources */,

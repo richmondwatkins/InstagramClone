@@ -25,4 +25,9 @@
     [self.delegate favoritePhoto:self];
 }
 
+
+- (IBAction)onCommentButtonTapped:(id)sender {
+    [self.delegate commentOnPhoto:self];
+}
+
 @end
