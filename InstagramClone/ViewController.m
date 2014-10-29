@@ -174,7 +174,6 @@
         }
     }];
 
-
     [self.cells addObject:cell];
     return cell;
 }

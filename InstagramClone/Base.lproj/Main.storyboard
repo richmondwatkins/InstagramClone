@@ -385,8 +385,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gP9-Iw-di8">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="ZC5-xJ-Osp">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem title="Comments" id="c3n-iz-eWz">
+                                            <barButtonItem key="leftBarButtonItem" image="back" id="fRq-Tx-83D">
+                                                <connections>
+                                                    <action selector="onBackButtonPressed:" destination="ZLA-JM-m9b" id="X5t-Ca-HXV"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Two-cS-fjR" detailTextLabel="NQe-Bf-BhP" style="IBUITableViewCellStyleSubtitle" id="KCk-zN-Cpw">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -428,7 +441,7 @@
                         <constraints>
                             <constraint firstItem="I8u-Wf-pJi" firstAttribute="leading" secondItem="dld-sU-UuO" secondAttribute="leadingMargin" id="MAM-vp-1Wq"/>
                             <constraint firstItem="gP9-Iw-di8" firstAttribute="bottom" secondItem="uPj-uK-5Fi" secondAttribute="top" id="Muk-sk-SyB"/>
-                            <constraint firstItem="gP9-Iw-di8" firstAttribute="top" secondItem="dld-sU-UuO" secondAttribute="top" id="ZCL-dD-sMq"/>
+                            <constraint firstItem="gP9-Iw-di8" firstAttribute="top" secondItem="dld-sU-UuO" secondAttribute="top" constant="28" id="ZCL-dD-sMq"/>
                             <constraint firstItem="I8u-Wf-pJi" firstAttribute="centerX" secondItem="dld-sU-UuO" secondAttribute="centerX" id="tbr-TA-TTY"/>
                             <constraint firstItem="I8u-Wf-pJi" firstAttribute="top" secondItem="rGz-DD-br5" secondAttribute="bottom" constant="247" id="xE6-Ff-KWC"/>
                             <constraint firstItem="gP9-Iw-di8" firstAttribute="centerX" secondItem="I8u-Wf-pJi" secondAttribute="centerX" id="xQk-iI-AWH"/>
@@ -442,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rks-mY-yEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611" y="-62"/>
+            <point key="canvasLocation" x="2620" y="-23"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZSD-yd-yRu">
@@ -467,6 +480,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="40" height="40"/>
         <image name="hearticon" width="30" height="28"/>
     </resources>
 </document>
