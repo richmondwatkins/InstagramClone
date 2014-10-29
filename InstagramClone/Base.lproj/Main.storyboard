@@ -220,16 +220,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QSD-Mj-ydp">
-                                <rect key="frame" x="252" y="119" width="97" height="30"/>
+                                <rect key="frame" x="252" y="64" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raj-s7-h3l">
-                                <rect key="frame" x="252" y="182" width="97" height="30"/>
+                                <rect key="frame" x="252" y="102" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-BC-840">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-BC-840">
                                 <rect key="frame" x="-8" y="230" width="616" height="321"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nlF-vZ-edx">
                                     <size key="itemSize" width="249" height="160"/>
@@ -261,24 +261,56 @@
                                     <outlet property="delegate" destination="dul-Jq-BOe" id="Tpp-Nt-Lpg"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7H7-aC-N9Q">
+                                <rect key="frame" x="340" y="140" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nCG-yt-pyq">
+                                <rect key="frame" x="186" y="169" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWs-mj-N7B">
+                                <rect key="frame" x="329" y="169" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0Q-vP-EwI">
+                                <rect key="frame" x="197" y="140" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OVL-BC-840" firstAttribute="leading" secondItem="bDg-20-4Mt" secondAttribute="leadingMargin" constant="-24" id="1NU-qU-T4F"/>
-                            <constraint firstItem="QSD-Mj-ydp" firstAttribute="top" secondItem="ZwH-GE-RNX" secondAttribute="bottom" constant="63" id="DsI-LG-EDP"/>
+                            <constraint firstAttribute="centerX" secondItem="NWs-mj-N7B" secondAttribute="centerX" constant="-77.5" id="1gX-YY-S3Q"/>
+                            <constraint firstItem="nCG-yt-pyq" firstAttribute="top" secondItem="S0Q-vP-EwI" secondAttribute="bottom" constant="8" id="4eR-Sw-PUC"/>
+                            <constraint firstAttribute="centerX" secondItem="7H7-aC-N9Q" secondAttribute="centerX" constant="-77" id="CfY-Nk-V8S"/>
+                            <constraint firstItem="QSD-Mj-ydp" firstAttribute="top" secondItem="ZwH-GE-RNX" secondAttribute="bottom" constant="8" id="DsI-LG-EDP"/>
                             <constraint firstAttribute="centerX" secondItem="ZwH-GE-RNX" secondAttribute="centerX" id="FuR-jI-PRD"/>
-                            <constraint firstItem="OVL-BC-840" firstAttribute="top" secondItem="raj-s7-h3l" secondAttribute="bottom" constant="18" id="Imu-xq-lhu"/>
+                            <constraint firstItem="OVL-BC-840" firstAttribute="top" secondItem="raj-s7-h3l" secondAttribute="bottom" constant="98" id="Imu-xq-lhu"/>
                             <constraint firstItem="ZwH-GE-RNX" firstAttribute="top" secondItem="sqi-tG-CPl" secondAttribute="bottom" constant="15" id="N8O-S7-3cC"/>
+                            <constraint firstItem="7H7-aC-N9Q" firstAttribute="top" secondItem="sqi-tG-CPl" secondAttribute="bottom" constant="120" id="Qyy-9C-by9"/>
                             <constraint firstItem="OVL-BC-840" firstAttribute="bottom" secondItem="sRC-nw-B7m" secondAttribute="top" id="TMd-2A-Hbs"/>
                             <constraint firstAttribute="centerX" secondItem="QSD-Mj-ydp" secondAttribute="centerX" id="TS9-2w-1sv"/>
                             <constraint firstItem="OVL-BC-840" firstAttribute="centerX" secondItem="raj-s7-h3l" secondAttribute="centerX" id="YzU-jS-wUB"/>
-                            <constraint firstItem="raj-s7-h3l" firstAttribute="top" secondItem="QSD-Mj-ydp" secondAttribute="bottom" constant="31" id="qML-J3-ov1"/>
+                            <constraint firstItem="S0Q-vP-EwI" firstAttribute="top" secondItem="sqi-tG-CPl" secondAttribute="bottom" constant="120" id="afS-fG-Hy0"/>
+                            <constraint firstAttribute="centerX" secondItem="nCG-yt-pyq" secondAttribute="centerX" constant="65.5" id="b2e-33-fEA"/>
+                            <constraint firstItem="NWs-mj-N7B" firstAttribute="top" secondItem="7H7-aC-N9Q" secondAttribute="bottom" constant="8" id="ekP-dc-0Kn"/>
+                            <constraint firstItem="raj-s7-h3l" firstAttribute="top" secondItem="QSD-Mj-ydp" secondAttribute="bottom" constant="8" id="qML-J3-ov1"/>
                             <constraint firstAttribute="centerX" secondItem="raj-s7-h3l" secondAttribute="centerX" id="uyO-f1-1Ap"/>
+                            <constraint firstAttribute="centerX" secondItem="S0Q-vP-EwI" secondAttribute="centerX" constant="66" id="xfJ-s1-yph"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="QPC-bS-jjQ"/>
                     <connections>
                         <outlet property="collectionView" destination="OVL-BC-840" id="xeP-bU-rEN"/>
+                        <outlet property="followersTextField" destination="nCG-yt-pyq" id="iNu-4P-Si0"/>
+                        <outlet property="followingTextField" destination="NWs-mj-N7B" id="JZc-IH-0KZ"/>
                         <outlet property="userEmailTextField" destination="QSD-Mj-ydp" id="hVa-P3-1z3"/>
                         <outlet property="usernameTextField" destination="raj-s7-h3l" id="NCm-0H-nrg"/>
                     </connections>
