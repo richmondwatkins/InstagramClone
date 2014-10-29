@@ -20,6 +20,7 @@
 @property NSArray *homeFeedElements;
 @property NSMutableArray *homeImagesArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *commentTableView;
 @property NSMutableArray *cells;
 @property Photo *selectedPhotoForComment;
 @end
@@ -154,7 +155,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.homeImagesArray.count;
+        return self.homeImagesArray.count;
+
 }
 
 - (HomeTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

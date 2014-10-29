@@ -8,9 +8,15 @@
 
 #import "HomeTableViewCell.h"
 
+@interface HomeTableViewCell ()<UITableViewDelegate, UITableViewDataSource>
+
+@end
+
 @implementation HomeTableViewCell
 
 +(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Cell created");
+
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
 
     UITapGestureRecognizer *doubleTapFolderGesture = [[UITapGestureRecognizer alloc] initWithTarget:cell action:@selector(favoritePhoto)];
@@ -18,6 +24,10 @@
     [cell addGestureRecognizer:doubleTapFolderGesture];
 
     cell.heartImageView.hidden = YES;
+
+    cell.commentTableView.dataSource = cell;
+    cell.commentTableView.delegate = cell;
+
     return cell;
 }
 
@@ -28,6 +38,19 @@
 
 - (IBAction)onCommentButtonTapped:(id)sender {
     [self.delegate commentOnPhoto:self];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"Table Created");
+
+    return 2;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+
+    return cell;
 }
 
 @end
