@@ -13,6 +13,7 @@
 #import "Photo.h"
 #import "HomeTableViewCell.h"
 #import "FollowingRelations.h"
+#import "Favorite.h"
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate, HomeCellDelegate>
 @property NSArray *homeFeedElements;
 @property NSMutableArray *homeImagesArray;
@@ -122,7 +123,6 @@
 -(void)downloadImages:(PFUser *)user{
     PFQuery *query = [PFQuery queryWithClassName:[Photo parseClassName]];
     [query whereKey:@"user" equalTo:user];
-
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
@@ -158,13 +158,38 @@
     cell.delegate = self;
 
     NSDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
+    Photo *photoObject = photoDictionary[@"photoData"];
     cell.imageActual.image = photoDictionary[@"photoImage"];
+
+    PFQuery *favoritesQuery = [Favorite query];
+    [favoritesQuery whereKey:@"owner" equalTo:[PFUser currentUser]];
+    [favoritesQuery whereKey:@"photo" equalTo:photoObject];
+
+    [favoritesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects.count > 0) {
+            cell.heartImageView.hidden = NO;
+        }
+    }];
+
+
     [self.cells addObject:cell];
     return cell;
 }
 
 -(void)favoritePhoto:(HomeTableViewCell *)cell{
-    cell.heartImageView.hidden = NO;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+
+    NSMutableDictionary *photoDictionary = [self.homeImagesArray objectAtIndex:indexPath.row];
+
+    Photo *photo = photoDictionary[@"photoData"];
+
+    Favorite *favorite = [Favorite object];
+    favorite.owner = [PFUser currentUser];
+    favorite.photo = photo;
+
+    [favorite saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        cell.heartImageView.hidden = NO;
+    }];
 }
 
 @end
