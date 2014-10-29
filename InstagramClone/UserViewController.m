@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *imagesArray;
+@property (weak, nonatomic) IBOutlet UITextField *followersTextField;
+@property (weak, nonatomic) IBOutlet UITextField *followingTextField;
 
 @end
 
@@ -30,6 +32,8 @@
 
     [self findAllFollowers];
     [self downloadImages];
+    self.followersTextField.text = @"lots";
+    self.followingTextField.text = @"Some";
 }
 
 -(void)downloadImages{
