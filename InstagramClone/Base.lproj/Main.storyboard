@@ -93,19 +93,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HFV-mL-QDg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="438"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Write a caption..." translatesAutoresizingMaskIntoConstraints="NO" id="eg4-qf-7hu">
+                                <rect key="frame" x="16" y="362" width="576" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ggo-Cp-TmL" id="bTR-tR-6X8"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YI8-H4-NYm">
+                                <rect key="frame" x="0.0" y="513" width="600" height="38"/>
+                                <color key="backgroundColor" red="0.27611651301721518" green="0.46752242245300202" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Share ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onShareButtonPressed:" destination="ggo-Cp-TmL" eventType="touchUpInside" id="3R6-Pa-pv9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="3" id="8rV-Br-Ltg"/>
                             <constraint firstItem="HFV-mL-QDg" firstAttribute="top" secondItem="o0U-sk-pOQ" secondAttribute="top" id="9z4-Cr-AiC"/>
-                            <constraint firstItem="9To-Ro-bmw" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="113" id="LEx-Vq-d7A"/>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="leading" secondItem="o0U-sk-pOQ" secondAttribute="leadingMargin" id="CCW-vz-urV"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="leading" secondItem="HFV-mL-QDg" secondAttribute="leading" id="I2Y-J1-I22"/>
+                            <constraint firstItem="9To-Ro-bmw" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="192" id="LEx-Vq-d7A"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="top" secondItem="eg4-qf-7hu" secondAttribute="bottom" constant="79" id="Sl0-yW-ieD"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="trailing" secondItem="HFV-mL-QDg" secondAttribute="trailing" id="Xpy-8p-Jmn"/>
                             <constraint firstItem="HFV-mL-QDg" firstAttribute="leading" secondItem="o0U-sk-pOQ" secondAttribute="leading" id="Zm5-jh-aQq"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="bottom" secondItem="9To-Ro-bmw" secondAttribute="top" id="aqt-DC-Ctk"/>
+                            <constraint firstItem="9To-Ro-bmw" firstAttribute="top" secondItem="eg4-qf-7hu" secondAttribute="bottom" constant="117" id="dIL-Oa-Z71"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eg4-qf-7hu" secondAttribute="trailing" constant="-8" id="dOl-7q-KBF"/>
                             <constraint firstAttribute="trailing" secondItem="HFV-mL-QDg" secondAttribute="trailing" id="uFh-TZ-Ks1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="EfF-dz-qfB"/>
                     <connections>
+                        <outlet property="descriptionText" destination="eg4-qf-7hu" id="GBo-pZ-IAC"/>
                         <outlet property="imageView" destination="HFV-mL-QDg" id="wWr-ut-Gla"/>
                     </connections>
                 </viewController>

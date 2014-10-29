@@ -39,6 +39,17 @@
     cell.delegate = self;
     PFUser *user = [self.usersArray objectAtIndex:indexPath.row];
     cell.textLabel.text = user[@"username"];
+
+    PFQuery *followerQuery = [FollowingRelations query];
+    [followerQuery whereKey:@"follower" equalTo:[PFUser currentUser]];
+    [followerQuery whereKey:@"following" equalTo:user];
+    cell.addFriendButton.hidden = YES;
+    [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects.count <= 0) {
+            cell.addFriendButton.hidden = NO;
+        }
+    }];
+
     return cell;
 }
 

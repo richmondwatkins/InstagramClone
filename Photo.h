@@ -12,4 +12,6 @@
 @interface Photo : PFObject <PFSubclassing>
 @property PFUser *user;
 @property PFFile *imageFile;
+@property NSString *description;
+@property NSArray *tags;
 @end

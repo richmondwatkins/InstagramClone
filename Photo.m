@@ -12,6 +12,8 @@
 
 @dynamic user;
 @dynamic imageFile;
+@dynamic description;
+@dynamic tags;
 
 +(void)load{
     [self registerSubclass];
