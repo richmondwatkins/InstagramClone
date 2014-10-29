@@ -13,11 +13,14 @@
 #import "SearchTableViewCell.h"
 #import "FollowingRelations.h"
 #import "Tag.h"
-@interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, SearchDelegate>
+#import "SearchCollectionViewCell.h"
+@interface ExploreViewController () <UITableViewDelegate, UITableViewDataSource, SearchDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *exploreTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSArray *usersArray;
+@property NSArray *imagesArray;
 @property BOOL isSearchingUsers;
 @end
 
@@ -36,6 +39,10 @@
     return self.usersArray.count;
 }
 
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.imagesArray.count;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     cell.delegate = self;
@@ -51,6 +58,13 @@
             cell.addFriendButton.hidden = NO;
         }
     }];
+
+    return cell;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    PFObject *photoObject = [self.imagesArray objectAtIndex:indexPath.row];
+    SearchCollectionViewCell *cell = [SearchCollectionViewCell createCellWithCollection:collectionView andPhoto:photoObject[@"photo"] andIndexPath:indexPath];
 
     return cell;
 }
@@ -104,8 +118,10 @@
 
 - (IBAction)searchUserOrTags:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex) {
+        self.tableView.hidden = YES;
         self.isSearchingUsers = NO;
     }else{
+        self.tableView.hidden = NO;
         self.isSearchingUsers = YES;
     }
 }
@@ -139,7 +155,9 @@
         } else {
 
             if (self.isSearchingUsers == NO) {
-                NSLog(@"objects after text field %@", objects.firstObject[@"photo"]);
+                NSLog(@"%@",objects);
+                self.imagesArray = objects;
+                [self.collectionView reloadData];
             }
 
             self.usersArray = objects;

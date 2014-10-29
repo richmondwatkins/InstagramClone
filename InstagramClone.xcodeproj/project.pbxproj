@@ -34,6 +34,7 @@
 		5D1A34FE19FEE8F8003EB192 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1A34FD19FEE8F8003EB192 /* Accounts.framework */; };
 		5D51464F1A0093B300E4AD2B /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D51464E1A0093B300E4AD2B /* Favorite.m */; };
 		5D5146521A00A63100E4AD2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5146511A00A63100E4AD2B /* Tag.m */; };
+		5D5146551A00B79B00E4AD2B /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5146541A00B79B00E4AD2B /* SearchCollectionViewCell.m */; };
 		5D61E6421A0036DD00D535A5 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */; };
 		5D8974D91A00585500582E47 /* FollowingRelations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8974D81A00585500582E47 /* FollowingRelations.m */; };
 		5DC464D81A00120000786AD4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC464D71A00120000786AD4 /* Photo.m */; };
@@ -81,6 +82,8 @@
 		5D51464E1A0093B300E4AD2B /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		5D5146501A00A63100E4AD2B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		5D5146511A00A63100E4AD2B /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		5D5146531A00B79B00E4AD2B /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCollectionViewCell.h; path = ../SearchCollectionViewCell.h; sourceTree = "<group>"; };
+		5D5146541A00B79B00E4AD2B /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCollectionViewCell.m; path = ../SearchCollectionViewCell.m; sourceTree = "<group>"; };
 		5D61E6401A0036DD00D535A5 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		5D8974D71A00585500582E47 /* FollowingRelations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingRelations.h; path = InstagramClone/FollowingRelations.h; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		5D15C7BF19FED2B100F1A62F /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				5D15C7CD19FED2B100F1A62F /* Main.storyboard */,
 				CCE088461A00354C0074484E /* HomeTableViewCell.h */,
 				CCE088471A00354C0074484E /* HomeTableViewCell.m */,
 				5D15C7C419FED2B100F1A62F /* AppDelegate.h */,
@@ -159,7 +163,8 @@
 				5DEC4B1F19FF596300DE1D3D /* CustomCollectionViewCell.m */,
 				5D15C7CA19FED2B100F1A62F /* ViewController.h */,
 				5D15C7CB19FED2B100F1A62F /* ViewController.m */,
-				5D15C7CD19FED2B100F1A62F /* Main.storyboard */,
+				5D5146531A00B79B00E4AD2B /* SearchCollectionViewCell.h */,
+				5D5146541A00B79B00E4AD2B /* SearchCollectionViewCell.m */,
 				5D61E6401A0036DD00D535A5 /* SearchTableViewCell.h */,
 				5D61E6411A0036DD00D535A5 /* SearchTableViewCell.m */,
 				CCAD415F19FF3B9B008FFA5E /* UserViewController.h */,
@@ -321,6 +326,7 @@
 			files = (
 				5DC464D81A00120000786AD4 /* Photo.m in Sources */,
 				CCAD416119FF3B9B008FFA5E /* UserViewController.m in Sources */,
+				5D5146551A00B79B00E4AD2B /* SearchCollectionViewCell.m in Sources */,
 				81E10C5519FEEA97000FE364 /* ExploreViewController.m in Sources */,
 				CCE088481A00354C0074484E /* HomeTableViewCell.m in Sources */,
 				5D15C7F419FEDB2000F1A62F /* Comment.m in Sources */,
