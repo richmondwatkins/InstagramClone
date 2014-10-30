@@ -12,12 +12,20 @@
 #import "Photo.h"
 #import "FollowingRelations.h"
 @interface UserViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *imagesArray;
-@property (weak, nonatomic) IBOutlet UITextField *followersTextField;
-@property (weak, nonatomic) IBOutlet UITextField *followingTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *followersTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *followingTextField;
+
+
+// These labels need to be hooked up with appropriate data
+@property (strong, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (strong, nonatomic) IBOutlet UILabel *fullNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *postsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *followersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *followingLabel;
 
 @end
 
@@ -27,13 +35,16 @@
     [super viewDidLoad];
     self.imagesArray = [NSMutableArray array];
 
-    self.userEmailTextField.text = [PFUser currentUser][@"email"];
-    self.usernameTextField.text = [PFUser currentUser][@"email"];
+//    self.userEmailTextField.text = [PFUser currentUser][@"email"];
+//    self.usernameTextField.text = [PFUser currentUser][@"email"];
+    PFUser *user = [PFUser currentUser];
+    self.title = user[@"username"];
+    self.profileImageView.image = [UIImage imageNamed:@"coco"];
 
     [self findAllFollowers];
     [self downloadImages];
-    self.followersTextField.text = @"lots";
-    self.followingTextField.text = @"Some";
+//    self.followersTextField.text = @"lots";
+//    self.followingTextField.text = @"Some";
 }
 
 -(void)downloadImages{

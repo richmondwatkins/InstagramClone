@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self.exploreTextField setFont:[UIFont fontWithName:@"Avenir Next" size:12]];
     self.isSearchingUsers = YES;
     self.usersArray = [NSArray array];
     [self refreshDisplay];
@@ -47,6 +48,8 @@
     SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     cell.delegate = self;
     PFUser *user = [self.usersArray objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:18];
+
     cell.textLabel.text = user[@"username"];
 
     PFQuery *followerQuery = [FollowingRelations query];
