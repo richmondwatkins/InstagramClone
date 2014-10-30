@@ -37,7 +37,7 @@
     self.title = user[@"username"];
     self.profileImageView.image = [UIImage imageNamed:@"coco"];
 
-    self.fullNameLabel.text = [PFUser currentUser][@"username"];
+    self.fullNameLabel.text = [[PFUser currentUser][@"username"] uppercaseString];
     [self.imagesArray removeAllObjects];
     [self findAllFollowers];
     [self downloadImages];
