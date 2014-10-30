@@ -31,6 +31,10 @@
 }
 
 -(void)favoritePhoto{
+    NSString *likeCount = self.likesButton.titleLabel.text;
+    int likes = likeCount.intValue;
+    likes +=1;
+    [self.likesButton.titleLabel setText:[NSString stringWithFormat:@"%i", likes]];
     [self.delegate favoritePhoto:self];
 }
 

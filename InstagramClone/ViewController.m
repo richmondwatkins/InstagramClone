@@ -190,6 +190,13 @@
     [commentsQuery includeKey:@"owner"];
     [commentsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         cell.comments = objects;
+
+        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:cell.comments];
+        [tempArray sortUsingComparator:^(Comment *firstObject, Comment *secondObject) {
+            return [firstObject.createdAt compare:secondObject.createdAt ];
+        }];
+
+        cell.comments = [NSArray arrayWithArray:tempArray];
         [cell.commentTableView reloadData];
     }];
 

@@ -55,9 +55,10 @@
     PFQuery *followerQuery = [FollowingRelations query];
     [followerQuery whereKey:@"follower" equalTo:[PFUser currentUser]];
     [followerQuery whereKey:@"following" equalTo:user];
-    cell.followingButton.hidden = YES;;
+    cell.followingButton.hidden = YES;
+
     [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (objects.count <= 0) {
+        if (objects.count > 0) {
             cell.followingButton.hidden = NO;
         }
     }];
@@ -115,6 +116,7 @@
     [followerFollowing saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             cell.followingButton.hidden = NO;
+            cell.addFriendButton.hidden = YES;
         }
     }];
 }

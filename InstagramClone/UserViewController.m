@@ -30,19 +30,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.imagesArray = [NSMutableArray array];
+}
 
-
+-(void)viewWillAppear:(BOOL)animated{
     PFUser *user = [PFUser currentUser];
     self.title = user[@"username"];
     self.profileImageView.image = [UIImage imageNamed:@"coco"];
 
     self.fullNameLabel.text = [PFUser currentUser][@"username"];
-}
-
--(void)viewWillAppear:(BOOL)animated{
+    [self.imagesArray removeAllObjects];
     [self findAllFollowers];
     [self downloadImages];
 
+}
+
+- (IBAction)logOutUser:(id)sender {
+    [PFUser logOut];
 }
 
 -(void)downloadImages{
