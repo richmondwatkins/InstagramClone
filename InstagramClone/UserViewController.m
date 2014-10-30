@@ -12,12 +12,8 @@
 #import "Photo.h"
 #import "FollowingRelations.h"
 @interface UserViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-//@property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
-//@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *imagesArray;
-//@property (weak, nonatomic) IBOutlet UITextField *followersTextField;
-//@property (weak, nonatomic) IBOutlet UITextField *followingTextField;
 
 
 // These labels need to be hooked up with appropriate data
@@ -35,16 +31,18 @@
     [super viewDidLoad];
     self.imagesArray = [NSMutableArray array];
 
-//    self.userEmailTextField.text = [PFUser currentUser][@"email"];
-//    self.usernameTextField.text = [PFUser currentUser][@"email"];
+
     PFUser *user = [PFUser currentUser];
     self.title = user[@"username"];
     self.profileImageView.image = [UIImage imageNamed:@"coco"];
 
+    self.fullNameLabel.text = [PFUser currentUser][@"username"];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     [self findAllFollowers];
     [self downloadImages];
-//    self.followersTextField.text = @"lots";
-//    self.followingTextField.text = @"Some";
+
 }
 
 -(void)downloadImages{
@@ -82,12 +80,23 @@
 -(void)findAllFollowers{
     PFQuery *queryFollowers = [PFQuery queryWithClassName:[FollowingRelations parseClassName]];
     [queryFollowers whereKey:@"follower" equalTo:[PFUser currentUser]];
-    [queryFollowers includeKey:@"following"];
 
-    [queryFollowers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        for(PFUser *user in objects){
-            NSLog(@"%@",user[@"following"]);
-        }
+    [queryFollowers countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.followingLabel.text = [NSString stringWithFormat:@"%i", number];
+    }];
+
+    PFQuery *queryFollowing = [PFQuery queryWithClassName:[FollowingRelations parseClassName]];
+    [queryFollowing whereKey:@"following" equalTo:[PFUser currentUser]];
+
+    [queryFollowing countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.followersLabel.text = [NSString stringWithFormat:@"%i", number];
+    }];
+
+    PFQuery *photoQuery = [PFQuery queryWithClassName:[Photo parseClassName]];
+    [photoQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+
+    [photoQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.postsLabel.text = [NSString stringWithFormat:@"%i", number];
     }];
 
 }
