@@ -173,6 +173,7 @@
     Photo *photoObject = photoDictionary[@"photoData"];
     cell.imageActual.image = photoDictionary[@"photoImage"];
     cell.friendsName.text = photoDictionary[@"photoData"][@"user"][@"username"];
+    cell.descriptionTextField.text = photoDictionary[@"photoData"][@"description"];
 
     PFQuery *favoritesQuery = [Favorite query];
     [favoritesQuery whereKey:@"owner" equalTo:[PFUser currentUser]];

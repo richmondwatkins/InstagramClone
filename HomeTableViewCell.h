@@ -22,6 +22,7 @@
 @property NSArray *comments;
 @property (strong, nonatomic) IBOutlet UIButton *likesButton;
 
+@property (strong, nonatomic) IBOutlet UITextView *descriptionTextField;
 
 +(HomeTableViewCell *)createCellForTableView:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath;
 

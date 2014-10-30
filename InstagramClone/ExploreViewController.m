@@ -145,7 +145,7 @@
 
 -(void)performSearchWithQuery:(PFQuery *)query withKey:(NSString *)key{
 
-    [query whereKey:key equalTo: self.exploreTextField.text];
+    [query whereKey:key equalTo: [self.exploreTextField.text lowercaseString]];
     if (self.isSearchingUsers == NO) {
         NSLog(@"TAG");
         [query includeKey:@"photo"];

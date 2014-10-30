@@ -18,7 +18,11 @@
 @property NSMutableArray *tags;
 @property UIImagePickerController *imagePicker;
 @property (strong, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tester;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *test2;
 @property (strong, nonatomic) IBOutlet UIButton *cameraButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *test1;
 @end
 
 @implementation CameraViewController
@@ -127,28 +131,29 @@
         }
 
         [PFObject saveAllInBackground:readyTags block:^(BOOL succeeded, NSError *error) {
-            NSLog(@"Saved all tags");
+            self.descriptionText.text = @"Success!";
         }];
     }];
 }
 
 - (IBAction)onShareButtonPressed:(id)sender {
-    self.descriptionText.text = @"Success!";
     [self uploadImage];
-}
-
--(IBAction)editingEnded:(id)sender{
-    [sender resignFirstResponder];
 }
 
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
+
+    self.test1.constant += 150;
+    self.test2.constant += 150;
+
     textView.text = @"";
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
 
     if([text isEqualToString:@"\n"]) {
+        self.test1.constant -= 150;
+        self.test2.constant -= 150;
         [self.tags removeAllObjects];
         [textView resignFirstResponder];
         NSError *error = nil;
@@ -157,6 +162,7 @@
         for (NSTextCheckingResult *match in matches) {
             NSRange wordRange = [match rangeAtIndex:1];
             NSString* word = [textView.text substringWithRange:wordRange];
+            word = [word lowercaseString];
             [self.tags addObject:word];
         }
 
