@@ -10,11 +10,12 @@
 
 @protocol SearchDelegate <NSObject>
 
--(void)addFriendButtonTapped:(UIButton *)button;
+-(void)addFriendButtonTapped:(UIButton *)button withCell:(id)cell;
 
 @end
 
 @interface SearchTableViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIButton *followingButton;
 @property (strong, nonatomic) IBOutlet UIButton *addFriendButton;
 @property id <SearchDelegate> delegate;
 @end

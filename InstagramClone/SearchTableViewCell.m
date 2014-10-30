@@ -14,7 +14,7 @@
 
 - (IBAction)onAddFriendButtonPressed:(UIButton *)sender {
 
-    [self.delegate addFriendButtonTapped:(UIButton *)sender];
+    [self.delegate addFriendButtonTapped:(UIButton *)sender withCell:(SearchTableViewCell *)self];
 }
 
 @end

@@ -55,10 +55,10 @@
     PFQuery *followerQuery = [FollowingRelations query];
     [followerQuery whereKey:@"follower" equalTo:[PFUser currentUser]];
     [followerQuery whereKey:@"following" equalTo:user];
-    cell.addFriendButton.hidden = YES;
+    cell.followingButton.hidden = YES;;
     [followerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects.count <= 0) {
-            cell.addFriendButton.hidden = NO;
+            cell.followingButton.hidden = NO;
         }
     }];
 
@@ -102,7 +102,7 @@
 }
 
 
--(void)addFriendButtonTapped:(UIButton *)button{
+-(void)addFriendButtonTapped:(UIButton *)button withCell:(SearchTableViewCell *)cell{
     CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
 
@@ -114,7 +114,7 @@
 
     [followerFollowing saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            button.hidden = YES;
+            cell.followingButton.hidden = NO;
         }
     }];
 }
