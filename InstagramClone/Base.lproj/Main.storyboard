@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SPB-xR-q55">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SPB-xR-q55">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -151,21 +151,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HFV-mL-QDg">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="359"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="367"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Write a caption..." translatesAutoresizingMaskIntoConstraints="NO" id="eg4-qf-7hu">
-                                <rect key="frame" x="16" y="362" width="576" height="72"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ggo-Cp-TmL" id="bTR-tR-6X8"/>
-                                </connections>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YI8-H4-NYm">
                                 <rect key="frame" x="0.0" y="513" width="600" height="38"/>
                                 <color key="backgroundColor" red="0.27611651301721518" green="0.46752242245300202" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="esN-PZ-H0b"/>
+                                </constraints>
                                 <state key="normal" title="Share ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,27 +167,67 @@
                                     <action selector="onShareButtonPressed:" destination="ggo-Cp-TmL" eventType="touchUpInside" id="3R6-Pa-pv9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt9-IH-fnx">
+                                <rect key="frame" x="16" y="483" width="89" height="22"/>
+                                <state key="normal" title=" Camera" image="camera">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCameraButtonTapped:" destination="ggo-Cp-TmL" eventType="touchUpInside" id="lMm-jF-XEQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD0-pD-3bv">
+                                <rect key="frame" x="459" y="483" width="125" height="22"/>
+                                <state key="normal" title=" Camera Roll" image="photographic1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCameraRollButtonTapped:" destination="ggo-Cp-TmL" eventType="touchUpInside" id="BDd-hn-rai"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Write a caption..." translatesAutoresizingMaskIntoConstraints="NO" id="eg4-qf-7hu">
+                                <rect key="frame" x="12" y="388" width="576" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="d3Q-Sh-EuX"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ggo-Cp-TmL" id="bTR-tR-6X8"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eg4-qf-7hu" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="3" id="8rV-Br-Ltg"/>
-                            <constraint firstItem="HFV-mL-QDg" firstAttribute="top" secondItem="o0U-sk-pOQ" secondAttribute="top" id="9z4-Cr-AiC"/>
-                            <constraint firstItem="eg4-qf-7hu" firstAttribute="leading" secondItem="o0U-sk-pOQ" secondAttribute="leadingMargin" id="CCW-vz-urV"/>
-                            <constraint firstItem="YI8-H4-NYm" firstAttribute="leading" secondItem="HFV-mL-QDg" secondAttribute="leading" id="I2Y-J1-I22"/>
-                            <constraint firstItem="9To-Ro-bmw" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="192" id="LEx-Vq-d7A"/>
-                            <constraint firstItem="YI8-H4-NYm" firstAttribute="top" secondItem="eg4-qf-7hu" secondAttribute="bottom" constant="79" id="Sl0-yW-ieD"/>
-                            <constraint firstItem="YI8-H4-NYm" firstAttribute="trailing" secondItem="HFV-mL-QDg" secondAttribute="trailing" id="Xpy-8p-Jmn"/>
-                            <constraint firstItem="HFV-mL-QDg" firstAttribute="leading" secondItem="o0U-sk-pOQ" secondAttribute="leading" id="Zm5-jh-aQq"/>
-                            <constraint firstItem="YI8-H4-NYm" firstAttribute="bottom" secondItem="9To-Ro-bmw" secondAttribute="top" id="aqt-DC-Ctk"/>
-                            <constraint firstItem="9To-Ro-bmw" firstAttribute="top" secondItem="eg4-qf-7hu" secondAttribute="bottom" constant="117" id="dIL-Oa-Z71"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eg4-qf-7hu" secondAttribute="trailing" constant="-8" id="dOl-7q-KBF"/>
-                            <constraint firstAttribute="trailing" secondItem="HFV-mL-QDg" secondAttribute="trailing" id="uFh-TZ-Ks1"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="trailing" secondItem="HFV-mL-QDg" secondAttribute="trailing" id="3iU-jZ-Zsy"/>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="21" id="8iH-sA-2Zj"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="bottom" secondItem="9To-Ro-bmw" secondAttribute="top" id="KDf-iY-2y8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eg4-qf-7hu" secondAttribute="trailing" constant="-4" id="L9m-T0-Gzt"/>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="leading" secondItem="qt9-IH-fnx" secondAttribute="leading" constant="-4" id="MKS-MN-GJM"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="leading" secondItem="HFV-mL-QDg" secondAttribute="leading" id="OPv-Bi-sk6"/>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="21" id="RdP-xg-g4H"/>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="top" secondItem="HFV-mL-QDg" secondAttribute="bottom" constant="21" id="Vfx-i8-3tS"/>
+                            <constraint firstItem="YI8-H4-NYm" firstAttribute="top" secondItem="qt9-IH-fnx" secondAttribute="bottom" constant="8" symbolic="YES" id="XP3-Rv-NuG"/>
+                            <constraint firstAttribute="trailing" secondItem="YI8-H4-NYm" secondAttribute="trailing" id="bRM-DM-TES"/>
+                            <constraint firstAttribute="centerX" secondItem="eg4-qf-7hu" secondAttribute="centerX" id="dRU-2k-vPj"/>
+                            <constraint firstItem="qt9-IH-fnx" firstAttribute="top" secondItem="eg4-qf-7hu" secondAttribute="bottom" constant="23" id="elO-XK-cXU"/>
+                            <constraint firstItem="eg4-qf-7hu" firstAttribute="leading" secondItem="o0U-sk-pOQ" secondAttribute="leadingMargin" constant="-4" id="lsz-Fe-0uh"/>
+                            <constraint firstItem="qt9-IH-fnx" firstAttribute="baseline" secondItem="eD0-pD-3bv" secondAttribute="baseline" id="oEF-vf-BNq"/>
+                            <constraint firstItem="HFV-mL-QDg" firstAttribute="top" secondItem="o0U-sk-pOQ" secondAttribute="top" id="suI-8f-Ypj"/>
+                            <constraint firstItem="eD0-pD-3bv" firstAttribute="trailing" secondItem="o0U-sk-pOQ" secondAttribute="trailingMargin" id="vCY-jr-4vp"/>
+                            <constraint firstItem="HFV-mL-QDg" firstAttribute="leading" secondItem="o0U-sk-pOQ" secondAttribute="leading" id="xQM-xo-HrJ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" image="integrated_webcam_filled-32" id="EfF-dz-qfB"/>
                     <connections>
+                        <outlet property="cameraButton" destination="qt9-IH-fnx" id="5o1-k9-3XC"/>
                         <outlet property="descriptionText" destination="eg4-qf-7hu" id="GBo-pZ-IAC"/>
                         <outlet property="imageView" destination="HFV-mL-QDg" id="wWr-ut-Gla"/>
+                        <outlet property="shareButton" destination="YI8-H4-NYm" id="fbd-co-LUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paz-QN-pSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -557,7 +590,7 @@
             <objects>
                 <tabBarController id="SPB-xR-q55" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="UgW-hx-kKc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -577,11 +610,13 @@
     </scenes>
     <resources>
         <image name="back" width="40" height="40"/>
+        <image name="camera" width="20" height="20"/>
         <image name="children-32" width="32" height="32"/>
         <image name="hearticon" width="30" height="28"/>
         <image name="hearts-25" width="12" height="12"/>
         <image name="home_filled-32" width="32" height="32"/>
         <image name="integrated_webcam_filled-32" width="32" height="32"/>
+        <image name="photographic1" width="20" height="20"/>
         <image name="speech_bubble-25" width="12" height="12"/>
         <image name="wind_rose-32" width="32" height="32"/>
     </resources>

@@ -16,6 +16,9 @@
 @property (strong, nonatomic) IBOutlet UITextView *descriptionText;
 @property NSDictionary *photoInfo;
 @property NSMutableArray *tags;
+@property UIImagePickerController *imagePicker;
+@property (strong, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) IBOutlet UIButton *cameraButton;
 @end
 
 @implementation CameraViewController
@@ -26,19 +29,62 @@
     self.tags = [NSMutableArray array];
     self.view.backgroundColor = [UIColor grayColor];
 
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    self.shareButton.hidden = YES;
+    self.descriptionText.hidden = YES;
 
-    imagePicker.delegate = self;
+    self.imagePicker = [[UIImagePickerController alloc] init];
 
-    imagePicker.sourceType =
-    UIImagePickerControllerSourceTypeCamera;
+    self.imagePicker.delegate = self;
 
-    [self presentViewController:imagePicker
-                       animated:YES completion:nil];
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+}
 
+-(void)viewDidDisappear:(BOOL)animated{
+    self.imageView.image = nil;
+    self.descriptionText.text = @"";
+}
+
+
+- (IBAction)onCameraRollButtonTapped:(id)sender {
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+- (IBAction)onCameraButtonTapped:(id)sender {
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+
+- (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated {
+    if (self.imagePicker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
+        UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(hideCamera:)];
+
+        viewController.navigationItem.leftBarButtonItem = cancelButton;
+        viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button];
+    } else {
+        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
+        viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button];
+        viewController.navigationItem.title = @"Take Photo";
+        viewController.navigationController.navigationBarHidden = NO; // important
+    }
+}
+
+-(void)hideCamera:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) showCamera: (id) sender {
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+}
+
+- (void) showLibrary: (id) sender {
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+
 
     NSString *mediaType = info[UIImagePickerControllerMediaType];
 
@@ -51,6 +97,9 @@
     {
         // Media is a video
     }
+
+    self.shareButton.hidden = NO;
+    self.descriptionText.hidden = NO;
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -84,12 +133,14 @@
 }
 
 - (IBAction)onShareButtonPressed:(id)sender {
+    self.descriptionText.text = @"Success!";
     [self uploadImage];
 }
 
 -(IBAction)editingEnded:(id)sender{
     [sender resignFirstResponder];
 }
+
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     textView.text = @"";
